@@ -24,7 +24,7 @@ LaTeXi è espressamente pensato per atenei italiani, poiché si basa sulle funzi
     5. [Ringraziamenti](https://github.com/poros/LaTeXi#ringraziamenti)
     6. [Sommario o Abstract](https://github.com/poros/LaTeXi#sommario-o-abstract)
     7. [Indici](https://github.com/poros/LaTeXi#indici)
-    8. [Lista capitoli (sì, di nuovo)](https://github.com/poros/LaTeXi#lista-capitoli-si-di-nuovo)
+    8. [Lista capitoli (sì, di nuovo)](https://github.com/poros/LaTeXi#lista-capitoli-sì-di-nuovo)
 5. [FAQ](https://github.com/poros/LaTeXi#faq)
 
 ## Lingua
@@ -64,7 +64,7 @@ Ogni volta che le vostre modifiche interessano la __bibliografia__ o __riferimen
 * PDFLaTeX
 * PDFLaTex
 
-Ogni altro cambio:
+Ogni altra modifica:
 
 * PDFLaTeX
 
