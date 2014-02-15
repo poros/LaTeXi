@@ -7,7 +7,7 @@ LaTeXi è realizzato in modo da essere facile e veloce da usare anche per person
 
 LaTeXi è espressamente pensato per atenei italiani, poiché si basa sulle funzionalità offerte dal pacchetto [TopTesi](http://www.ctan.org/tex-archive/macros/latex/contrib/toptesi).
 
-LaTeXi nasce dal template che Antonio Uccio Verardi (aka @poros) ha incominciato a passare ai propri amici come bootstrap (o copia-incolla, che dir si voglia) per le loro tesi di laurea. Da buon informatico, @poros l'ha poi commentato, pulito e messo su GitHub, per il software libero, il progresso dell'umanità, la pace nel mondo e tutta quella roba là.
+LaTeXi nasce dal template che Antonio Uccio Verardi (aka @poros) ha incominciato a passare ai propri amici come bootstrap (o copia-incolla, che dir si voglia) per le loro tesi di laurea. Da buon informatico, @poros l'ha poi commentato, ripulito e messo su GitHub, per il software libero, il progresso dell'umanità, la pace nel mondo e tutta quella roba là.
 
 - - -
 
