@@ -24,7 +24,7 @@ LaTeXi è espressamente pensato per atenei italiani, poiché si basa sulle funzi
     4. [Dedica e Citazione](https://github.com/poros/LaTeXi#dedica-citazione)
     5. [Ringraziamenti](https://github.com/poros/LaTeXi#ringraziamenti)
     6. [Sommario o Abstract](https://github.com/poros/LaTeXi#sommario-o-abstract)
-    7. [Indici](https://github.com/poros/LaTeXi#indici)
+    7. [Indici e varie](https://github.com/poros/LaTeXi#indici-e-varie)
     8. [Lista capitoli (sì, di nuovo)](https://github.com/poros/LaTeXi#lista-capitoli-sì-di-nuovo)
 6. [FAQ](https://github.com/poros/LaTeXi#faq)
 
@@ -43,7 +43,13 @@ La totalità dei pacchetti dovrebbe essere installabile facilmente tramite quals
 La dipendenza più problematica da installare potrebbe risultare TopTesi. DOVETE installare TopTesi, LaTeXi è costruito intorno a questo pacchetto. Se il vostro gestore pacchetti è nei guai, seguite le istruzioni riportate nella documentazione ufficiale del pacchetto [TopTesi](http://mirrors.ctan.org/macros/latex/contrib/toptesi/toptesi.pdf).
 
 ## Compilazione
-Come molti documenti in LaTeX è necessario compilare più volte prima di visualizzare correttamente il documento.
+__Compilare sempre il documento principale, mai i capitoli.__
+
+__Compilare un capitolo al posto del documento principale risulterà solo in una valanga di errori ed in una imprecazione in più.__
+
+__La compilazione del template genera dei warning. Non vi preoccupate, sono del tutto innocui.__ Allo stato attuale, LaTeXi non è ancora warning-free, mi dispiace. :(
+
+Come molti documenti in LaTeX è necessario __compilare più volte__ prima di visualizzare correttamente il documento.
 
 ###Prima compilazione
 
@@ -117,9 +123,28 @@ Anche questa sezione è opzionale. Vi cosiglio di evitare di superare la pagina,
 
 ### Sommario o Abstract
 
-### Indici
+Più un promemoria che altro. Scrivete il vostro sommario o abstract dove indicato dai commenti e tutto andrà liscio.
+
+### Indici e varie
+
+LaTeXi presenta di default i seguenti indici:
+
+* Indice generale
+* Indice delle figure
+* Indice delle tabelle
+* Indice dei listati
+
+Se un indice non vi serve (mai mettere un indice delle tabelle, se non avete tabelle!!!), semplicemente __eliminatelo__.
+
+Se volete aggiungere un indice, seguite l'esempio di quello per i listati poco sotto l'elenco delle dipendenze. I commenti vi indicheranno la sezione adatta. (Avviso: aggiungere un indice è un'operazione complessa. Vi sconsiglio di farlo, se siete alle prime armi.)
+
+Poco sopra vi è anche la possibilità di modificare lo stile dei dei collegamenti ipertestuali (in pratica i colori) e la sintassi default, insieme ai colori per le parole chiave, da usare per i listati.
 
 ### Lista capitoli (sì, di nuovo)
+
+Sì, una __seconda lista dei capitoli__. Per gli utenti base, questa lista va assolutamente __allineata__ con la precedente (gli utenti avanzati sanno invece benissimo come crearsi problemi da soli). È importante notare che la mancata inclusione di un capitolo in una delle due liste, lo farà sparire dal corpo della tesi. (Lo so che è una scocciatura, ma è per il vostro bene, fidatevi.)
+
+Questa seconda lista, che è nel corpo del documento (mentre la prima era nel preambolo) è quella che effettivamente __include__ i vari file con i capitoli all'interno della tesi. Ogni __include__ verrà sostituito dal capitolo corrispondente.
 
 - - -
 
