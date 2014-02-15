@@ -1,7 +1,7 @@
 LaTeXi
 ======
 
-LaTeXi è un template LaTeX per tesi di laurea in italiano ed inglese. Il suo obiettivo principale è abbattere il monte di imprecazioni annue lanciate contro LaTeX dagli studenti universitari.
+LaTeXi è un template LaTeX per tesi di laurea in italiano ed inglese. Il suo obiettivo principale è abbattere il monte annuo di imprecazioni lanciate contro LaTeX dagli studenti universitari.
 
 LaTeXi è realizzato in modo da essere facile e veloce da usare anche per persone che muovono i primi passi con LaTeX. Il template è già pronto per la compilazione ed i commenti e questo documento vi guideranno gradualmente nella personalizzazione, dal frontespizio all'elenco dei capitoli.
 
