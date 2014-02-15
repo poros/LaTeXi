@@ -73,13 +73,9 @@ Ogni volta che le vostre modifiche interessano la __bibliografia__ o __riferimen
 
 Ogni altra modifica:
 
-__Mi piacerebbe partecipare al progetto, come faccio?__
-
-    Siamo su GitHub, amico! Se hai del codice da aggiungere fai pure una pull request o, se hai trovato un bug o vuoi richiedere una feature, apri un issue. Se non sai di cosa sto parlando, vai sulla pagina di [LaTeXi](http://www.google.com) e scrivi un commento! Ti risponderò appena mi sveglio (sì, di solito dormo).
-
 * PDFLaTeX
 
-### Struttura della cartella
+## Struttura della cartella
 
 Tutti i file principali risiedono nella cartella LaTeXi. Siete liberi di __cambiare__ il nome della cartella a vostro piacimento. La sotto-cartella __images__ è stata pensata per ospitare le __immagini__, mentre la cartella __code__ è pensata per mantenere il vostro __codice__ (sì, era ovvio, ma l'ho scritto lo stesso in grassetto, non si sa mai). Ricordatevi che il nome della __sotto-cartella__ figurerà nel __percorso__ da specificare ogni volta che vorrete includere immagini o codice, come mostrato negli esempi (images/cat_photo.png). 
 
@@ -150,10 +146,10 @@ Questa seconda lista, che è nel corpo del documento (mentre la prima era nel pr
 
 # FAQ
 
-* ___Sono alle prime armi con LaTeX, dove posso trovare altre informazioni?__
+* ___Sono alle prime armi con LaTeX, dove posso trovare altre informazioni?___
 
     La rete tua amica ed alleata è, giovane Padawan. Ed il mio [blog](http://www.google.com) pure. 
 
-__Mi piacerebbe partecipare al progetto, come faccio?__
+* __Mi piacerebbe partecipare al progetto, come faccio?__
 
     Siamo su GitHub, amico! Se hai del codice da aggiungere fai pure una pull request o, se hai trovato un bug o vuoi richiedere una feature, apri un issue. Se non sai di cosa sto parlando, vai sulla pagina di [LaTeXi](http://www.google.com) e scrivi un commento! Ti risponderò appena mi sveglio (sì, di solito dormo).
