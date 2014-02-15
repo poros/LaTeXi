@@ -32,7 +32,7 @@ LaTeXi nasce dal template che Antonio Uccio Verardi (aka @poros) ha incominciato
 
 ## Lingua
 
-LaTeXi è composta da sue file principali: __tesi.tex__ per tesi in lingua italiana e __thesis.tex__ per tesi in lingua inglese. __Eliminate__ il file che non vi serve. La procedura descritta di seguito è valida per entrambe le lingue.
+LaTeXi è composta da due file principali: __tesi.tex__ per tesi in lingua italiana e __thesis.tex__ per tesi in lingua inglese. __Eliminate__ il file che non vi serve. La procedura descritta di seguito è valida per entrambe le lingue.
 
 ## Dipendenze
 
@@ -92,8 +92,6 @@ La prima cosa da fare è cercare la sezione __pdfinfo__ e personalizzare titolo,
 ### Frontespizio
 
 Il __frontespizio__ è presumibilmente l'unica pagina che chiunque leggerà. Per questo ricordatevi di metterci il vostro nome sopra. Sostituite i campi principali quali titolo, candidato, relatore e data (per carità, ricordatevi la data!). Il formato consigliato per la data è mese in lettere seguito dall'anno, come nell'esempio.
-
-Il logo
 
 Se lo desiderate, potete cambiare praticamente ogni dicitura presente nel frontespizio (candidato in studente, tesi di laurea in monografia, etc.). I commenti nel template vi segnaleranno cosa modificare.
 
