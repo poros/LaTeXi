@@ -131,14 +131,14 @@ LaTeXi presenta di default i seguenti indici:
 * Indice dei listati
 
 Se un indice non vi serve (mai mettere un indice delle tabelle, se non avete tabelle!!!), semplicemente __eliminatelo__.
-
+Prima di tutto, spegni e riaccendi. Secondo, prova a cercare su internet il messaggio di errore: il 99% delle volte è solo una parentesi non chiusa o un _ senza \. Se sei convinto sia colpa del template, scrivi un commento sulla pagina di [LaTeXi](http://www.google.com). Proveremo a cercare una soluzione insieme il prima possibile. 
 Se volete aggiungere un indice, seguite l'esempio di quello per i listati poco sotto l'elenco delle dipendenze. I commenti vi indicheranno la sezione adatta. (Avviso: aggiungere un indice è un'operazione complessa. Vi sconsiglio di farlo, se siete alle prime armi.)
 
 Poco sopra vi è anche la possibilità di modificare lo stile dei dei collegamenti ipertestuali (in pratica i colori) e la sintassi default, insieme ai colori per le parole chiave, da usare per i listati.
 
 ### Lista capitoli (sì, di nuovo)
 
-Sì, una __seconda lista dei capitoli__. Per gli utenti base, questa lista va assolutamente __allineata__ con la precedente (gli utenti avanzati sanno invece benissimo come crearsi problemi da soli). È importante notare che la mancata inclusione di un capitolo in una delle due liste, lo farà sparire dal corpo della tesi. (Lo so che è una scocciatura, ma è per il vostro bene, fidatevi.)
+Sì, una __seconda lista dei capitoli__. Per gli utenti base, questa lista va assolutamente __allineata__ con la precedente (gli utenti avanzati, invece, sanno benissimo come crearsi problemi da soli). È importante notare che la mancata inclusione di un capitolo in una delle due liste, lo farà sparire dal corpo della tesi. (Lo so che è una scocciatura, ma è per il vostro bene, fidatevi.)
 
 Questa seconda lista, che è nel corpo del documento (mentre la prima era nel preambolo) è quella che effettivamente __include__ i vari file con i capitoli all'interno della tesi. Ogni __include__ verrà sostituito dal capitolo corrispondente.
 
@@ -148,8 +148,37 @@ Questa seconda lista, che è nel corpo del documento (mentre la prima era nel pr
 
 * ___Sono alle prime armi con LaTeX, dove posso trovare altre informazioni?___
 
-    La rete tua amica ed alleata è, giovane Padawan. Ed il mio [blog](http://www.google.com) pure. 
+    La rete amica e alleata ti è, giovane Padawan. Ed il mio [blog](http://www.google.com) pure. 
 
-* __Mi piacerebbe partecipare al progetto, come faccio?__
+* __Ho un problema con LaTeXi! Che faccio?__
+
+    Prima di tutto, spegni e riaccendi. Secondo, fai il clean dei file temporanei. Terzo, prova a cercare su internet il messaggio di errore: il 99% delle volte è solo una parentesi non chiusa o un _ senza \. Se sei convinto sia colpa del template, scrivi un commento sulla pagina di [LaTeXi](http://www.google.com). Proveremo a cercare una soluzione insieme il prima possibile. Se sai usare GitHub, invece, apri un issue.
+
+* __Non ci sono gli acronimi!!!__
+    Ehm, sì, non ci sono gli acronimi. Lo so che alcuni professori vogliono la lista degli acronimi ed è comprensibile che voi vogliate accontentarli. Ma, dopo aver provato sulla mia pelle pacchetti come _acronym_ e _glossary_, penso che tutta la complessità aggiunta dal loro uso (compilazioni accessorie, indice aggiuntivo, riferimenti, etc.) potrebbero danneggiare seriamente l'usabilità di LaTeXi dal punto di vista degli utenti meno esperti. LateXi ha come mantra quello di essere semplice da usare. Sinceramente, non credo che il gioco valga la candela. Inoltre, LaTeXi è un template, potete sempre aggiungerli voi! Comunque sono disposto a discuterne, in un commento o in un issue.
+
+* __Oh, due file diversi per l'inglese e l'italiano! Uuuh, code replication! Brrr...__
+
+    Sì, sì, sì, hai perfettamente ragione. Tuttavia, LaTeXi è pensata soprattutto per un utenza che non ha grande dimestichezza con LaTeX e con la programmazione in generale. Dividere le due lingue, che hanno configurazioni differenti per frontespizio e titoli delle sezioni, risparmia all'utente un bel po' di personalizzazioni e permette di dare dei simpatici valori di default che variano in base alla lingua. Certo, è un compromesso, ma il Keep It Simple Stupid ha sempre la meglio. Se desideri discuterne ancora, apri un issue. 
+
+* __Perché LaTeXi è un template e non un pacchetto?__
+
+    Perché un valido pacchetto per scrivere tesi per gli atenei italiani c'è già e si chiama [TopTesi](http://www.ctan.org/tex-archive/macros/latex/contrib/toptesi). L'idea che sta dietro LaTeXi è quella di essere un template __già funzionante__ e pronto per essere __personalizzato in pochissimo tempo__, soprattutto da utenti __poco esperti__.
+
+    Non era mia intenzione rimpacchettare tutte le funzioni di TopTesi in un pacchetto che non aggiunge nessuna funzionalità e che avrebbe richiesto una discreta conoscenza di LaTeX per essere usato. LaTeXi si ispira, invece, alla pratica più comune per gli utenti LaTeX: copiare un vecchio documento e cambiargli il titolo. LaTeXi è la tesi che vi avrebbe passato il vostro amico appena laureato.
+
+* __Ma il codice è in bianco e nero! Buuuuh, volevo i colori...__
+
+    LaTeXi è stata pensata per avere una discreta resa di stampa in qualsiasi condizione, anche in bianco e nero. Per questo l'unico colore utilizzato oltre al nero è il blu (ben poco blu, solo per alcuni tipi di collegamenti). Comunque, non ti negherò che anche a me piace il codice con i colori dell'arcobaleno e gli unicorni. Anzi, _ogni colorazione di sintassi per listing_ è ben accetta e raccomandata. Se ne siete in possesso, fate una pull request o scrivete un commento sulla pagina di [LaTeXi](http://www.google.com) (soprattutto se per Matlab, linguaggio usato da molta gente senza praticamente nessuna base di programmazione, la quale ne beneficerebbe senz'altro). Sarò felicissimo di aggiungerle come commenti! :) 
+
+* __Ma ci sono dei warning! Buuuh...__
+
+    Sì, è pieno di warning. Aiutatemi a correggerli, invece di lamentarvi!
+
+* __Mi scoccia poter compilare solo dal documento principale! Perché non hai usato il pacchetto _subfile_?
+
+    Sì, scoccia anche a me. Ma _subfile_ introduce troppa complessità d'uso per gli utenti più inesperti, che si troverebbero ad avere anche un file template per ogni capitolo (e qualche altro problema in più). Se ne può parlare, in un commento o in un issue, ma non credo che il gioco valga la candela, ora come ora.
+
+* __Mi piacerebbe partecipare al progetto! Come faccio?__
 
     Siamo su GitHub, amico! Se hai del codice da aggiungere fai pure una pull request o, se hai trovato un bug o vuoi richiedere una feature, apri un issue. Se non sai di cosa sto parlando, vai sulla pagina di [LaTeXi](http://www.google.com) e scrivi un commento! Ti risponderò appena mi sveglio (sì, di solito dormo).
