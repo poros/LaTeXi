@@ -155,6 +155,7 @@ Questa seconda lista, che è nel corpo del documento (mentre la prima era nel pr
     Prima di tutto, spegni e riaccendi. Secondo, fai il clean dei file temporanei. Terzo, prova a cercare su internet il messaggio di errore: il 99% delle volte è solo una parentesi non chiusa o un _ senza \. Se sei convinto sia colpa del template, scrivi un commento sulla pagina di [LaTeXi](http://www.google.com). Proveremo a cercare una soluzione insieme il prima possibile. Se sai usare GitHub, invece, apri un issue.
 
 * __Non ci sono gli acronimi!!!__
+
     Ehm, sì, non ci sono gli acronimi. Lo so che alcuni professori vogliono la lista degli acronimi ed è comprensibile che voi vogliate accontentarli. Ma, dopo aver provato sulla mia pelle pacchetti come _acronym_ e _glossary_, penso che tutta la complessità aggiunta dal loro uso (compilazioni accessorie, indice aggiuntivo, riferimenti, etc.) potrebbero danneggiare seriamente l'usabilità di LaTeXi dal punto di vista degli utenti meno esperti. LateXi ha come mantra quello di essere semplice da usare. Sinceramente, non credo che il gioco valga la candela. Inoltre, LaTeXi è un template, potete sempre aggiungerli voi! Comunque sono disposto a discuterne, in un commento o in un issue.
 
 * __Oh, due file diversi per l'inglese e l'italiano! Uuuh, code replication! Brrr...__
@@ -175,7 +176,7 @@ Questa seconda lista, che è nel corpo del documento (mentre la prima era nel pr
 
     Sì, è pieno di warning. Aiutatemi a correggerli, invece di lamentarvi!
 
-* __Mi scoccia poter compilare solo dal documento principale! Perché non hai usato il pacchetto _subfile_?
+* __Mi scoccia poter compilare solo dal documento principale! Perché non hai usato il pacchetto _subfile_?__
 
     Sì, scoccia anche a me. Ma _subfile_ introduce troppa complessità d'uso per gli utenti più inesperti, che si troverebbero ad avere anche un file template per ogni capitolo (e qualche altro problema in più). Se ne può parlare, in un commento o in un issue, ma non credo che il gioco valga la candela, ora come ora.
 
