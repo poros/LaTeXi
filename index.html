@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="LaTeXi : template LaTeX per tesi di laurea in italiano ed inglese" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>LaTeXi</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/poros/LaTeXi">View on GitHub</a>
+
+          <h1 id="project_title">LaTeXi</h1>
+          <h2 id="project_tagline">template LaTeX per tesi di laurea in italiano ed inglese</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/poros/LaTeXi/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/poros/LaTeXi/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="latexi" class="anchor" href="#latexi"><span class="octicon octicon-link"></span></a>LaTeXi</h1>
+
+<p>LaTeXi è un template LaTeX per tesi di laurea in italiano ed inglese. Il suo obiettivo principale è abbattere il monte di imprecazioni annue lanciate contro LaTeX dagli studenti universitari.</p>
+
+<p>LaTeXi è realizzato in modo da essere facile e veloce da usare anche per persone che muovono i primi passi con LaTeX. Il template è già pronto per la compilazione ed i commenti e questo documento vi guideranno gradualmente nella personalizzazione, dal frontespizio all'elenco dei capitoli.</p>
+
+<p>LaTeXi è espressamente pensato per atenei italiani, poiché si basa sulle funzionalità offerte dal pacchetto <a href="http://www.ctan.org/tex-archive/macros/latex/contrib/toptesi">TopTesi</a>.</p>
+
+<p>LaTeXi nasce dal template che Antonio Uccio Verardi (aka <a href="https://github.com/poros" class="user-mention">@poros</a>) ha incominciato a passare ai propri amici come bootstrap (o copia-incolla, che dir si voglia) per le loro tesi di laurea. Da buon informatico, <a href="https://github.com/poros" class="user-mention">@poros</a> l'ha poi commentato, pulito e messo su GitHub, per il software libero, il progresso dell'umanità, la pace nel mondo e tutta quella roba là.</p>
+
+<hr><h1>
+<a name="guida" class="anchor" href="#guida"><span class="octicon octicon-link"></span></a>Guida</h1>
+
+<ol>
+<li><a href="https://github.com/poros/LaTeXi#lingua">Lingua</a></li>
+<li><a href="https://github.com/poros/LaTeXi#dipendenze">Dipendenze</a></li>
+<li>
+<a href="https://github.com/poros/LaTeXi#compilazione">Compilazione</a>
+
+<ol>
+<li><a href="https://github.com/poros/LaTeXi#prima-compilazione">Prima compilazione</a></li>
+<li><a href="https://github.com/poros/LaTeXi#compilazioni-successive">Compilazioni successive</a></li>
+</ol>
+</li>
+<li><a href="https://github.com/poros/LaTeXi#struttura-della-cartella">Struttura della cartella</a></li>
+<li>
+<a href="https://github.com/poros/LaTeXi#componenti-da-personalizzare">Componenti da personalizzare</a>
+
+<ol>
+<li><a href="https://github.com/poros/LaTeXi#informazioni-pdf">Informazioni PDF</a></li>
+<li><a href="https://github.com/poros/LaTeXi#frontespizio">Frontespizio</a></li>
+<li><a href="https://github.com/poros/LaTeXi#lista-capitoli">Lista capitoli</a></li>
+<li><a href="https://github.com/poros/LaTeXi#dedica-citazione">Dedica e Citazione</a></li>
+<li><a href="https://github.com/poros/LaTeXi#ringraziamenti">Ringraziamenti</a></li>
+<li><a href="https://github.com/poros/LaTeXi#sommario-o-abstract">Sommario o Abstract</a></li>
+<li><a href="https://github.com/poros/LaTeXi#indici-e-varie">Indici e varie</a></li>
+<li><a href="https://github.com/poros/LaTeXi#lista-capitoli-s%C3%AC-di-nuovo">Lista capitoli (sì, di nuovo)</a></li>
+</ol>
+</li>
+<li><a href="https://github.com/poros/LaTeXi#faq">FAQ</a></li>
+</ol><h2>
+<a name="lingua" class="anchor" href="#lingua"><span class="octicon octicon-link"></span></a>Lingua</h2>
+
+<p>LaTeXi è composta da sue file principali: <strong>tesi.tex</strong> per tesi in lingua italiana e <strong>thesis.tex</strong> per tesi in lingua inglese. <strong>Eliminate</strong> il file che non vi serve. La procedura descritta di seguito è valida per entrambe le lingue.</p>
+
+<h2>
+<a name="dipendenze" class="anchor" href="#dipendenze"><span class="octicon octicon-link"></span></a>Dipendenze</h2>
+
+<p>Questo guida non dà consigli su editor LaTeX o su problemi di installazione particolari. Il mio <a href="http://www.google.com">blog</a>, invece, sì.</p>
+
+<p>Le dipendenze di LaTeXi sono innumerevoli, ma non tutte sono attivamente utilizzate dal template. Nella lista figurano tutti quei pacchetti che hanno una probabilità medio-alta di essere utilizzati in una comune tesi di laurea. Quando nel bel mezzo della tesi vorrete posizionare un'immagine in maniera assoluta, scrivere una formula o inserire del codice, controllate la lista di pacchetti già inclusi. Probabilmente quello che cercate è già lì in mezzo.</p>
+
+<p>La totalità dei pacchetti dovrebbe essere installabile facilmente tramite qualsiasi gestore di pacchetti LaTeX. L'approccio compila-errore-pacchetto-assente-installa è comunque il modo migliore di procedere se volete installare i pacchetti manualmente.</p>
+
+<p>La dipendenza più problematica da installare potrebbe risultare TopTesi. DOVETE installare TopTesi, LaTeXi è costruito intorno a questo pacchetto. Se il vostro gestore pacchetti è nei guai, seguite le istruzioni riportate nella documentazione ufficiale del pacchetto <a href="http://mirrors.ctan.org/macros/latex/contrib/toptesi/toptesi.pdf">TopTesi</a>.</p>
+
+<h2>
+<a name="compilazione" class="anchor" href="#compilazione"><span class="octicon octicon-link"></span></a>Compilazione</h2>
+
+<p><strong>Compilare sempre il documento principale, mai i capitoli.</strong></p>
+
+<p><strong>Compilare un capitolo al posto del documento principale risulterà solo in una valanga di errori ed in una imprecazione in più.</strong></p>
+
+<p><strong>La compilazione del template genera dei warning. Non vi preoccupate, sono del tutto innocui.</strong> Allo stato attuale, LaTeXi non è ancora warning-free, mi dispiace. :(</p>
+
+<p>Come molti documenti in LaTeX è necessario <strong>compilare più volte</strong> prima di visualizzare correttamente il documento.</p>
+
+<h3>
+<a name="prima-compilazione" class="anchor" href="#prima-compilazione"><span class="octicon octicon-link"></span></a>Prima compilazione</h3>
+
+<ul>
+<li>PDFLaTeX</li>
+<li>BibTeX</li>
+<li>PDFLaTeX</li>
+<li>PDFLaTex</li>
+</ul><h3>
+<a name="compilazioni-successive" class="anchor" href="#compilazioni-successive"><span class="octicon octicon-link"></span></a>Compilazioni successive</h3>
+
+<p>Ogni volta che le vostre modifiche interessano <strong>indici</strong> o <strong>riferimenti</strong> a <strong>capitoli</strong>, <strong>sezioni</strong> o <strong>immagini</strong>:</p>
+
+<ul>
+<li>PDFLaTeX</li>
+<li>PDFLaTeX</li>
+</ul><p>Ogni volta che le vostre modifiche interessano la <strong>bibliografia</strong> o <strong>riferimenti</strong> alla bibliografia:</p>
+
+<ul>
+<li>BibTeX</li>
+<li>PDFLaTeX</li>
+<li>PDFLaTex</li>
+</ul><p>Ogni altra modifica:</p>
+
+<ul>
+<li>PDFLaTeX</li>
+</ul><h2>
+<a name="struttura-della-cartella" class="anchor" href="#struttura-della-cartella"><span class="octicon octicon-link"></span></a>Struttura della cartella</h2>
+
+<p>Tutti i file principali risiedono nella cartella LaTeXi. Siete liberi di <strong>cambiare</strong> il nome della cartella a vostro piacimento. La sotto-cartella <strong>images</strong> è stata pensata per ospitare le <strong>immagini</strong>, mentre la cartella <strong>code</strong> è pensata per mantenere il vostro <strong>codice</strong> (sì, era ovvio, ma l'ho scritto lo stesso in grassetto, non si sa mai). Ricordatevi che il nome della <strong>sotto-cartella</strong> figurerà nel <strong>percorso</strong> da specificare ogni volta che vorrete includere immagini o codice, come mostrato negli esempi (images/cat_photo.png). </p>
+
+<p>Siete liberi di aggiungere, eliminare o modificare le sotto-cartelle, ma, vi prego, <strong>ricordatevi</strong> di cambiare anche i percorsi all'interno della tesi. Vi prego (sappiamo tutti come andrà a finire...).</p>
+
+<h2>
+<a name="componenti-da-personalizzare" class="anchor" href="#componenti-da-personalizzare"><span class="octicon octicon-link"></span></a>Componenti da personalizzare</h2>
+
+<h3>
+<a name="informazioni-pdf" class="anchor" href="#informazioni-pdf"><span class="octicon octicon-link"></span></a>Informazioni PDF</h3>
+
+<p>La prima cosa da fare è cercare la sezione <strong>pdfinfo</strong> e personalizzare titolo, autore, soggetto e parole chiave. Non vorrete che un Tinaso qualsiasi risulti l'autore della vostra tesi, vero?</p>
+
+<h3>
+<a name="frontespizio" class="anchor" href="#frontespizio"><span class="octicon octicon-link"></span></a>Frontespizio</h3>
+
+<p>Il <strong>frontespizio</strong> è presumibilmente l'unica pagina che chiunque leggerà. Per questo ricordatevi di metterci il vostro nome sopra. Sostituite i campi principali quali titolo, candidato, relatore e data (per carità, ricordatevi la data!). Il formato consigliato per la data è mese in lettere seguito dall'anno, come nell'esempio.</p>
+
+<p>Il logo</p>
+
+<p>Se lo desiderate, potete cambiare praticamente ogni dicitura presente nel frontespizio (candidato in studente, tesi di laurea in monografia, etc.). I commenti nel template vi segnaleranno cosa modificare.</p>
+
+<p>Sostituite il <strong>logo</strong> <strong>nella</strong> <strong>cartella</strong> <strong>images</strong> con quello della vostra università. E <strong>rinominate</strong> l'immagine <strong>logo</strong>. Oppure cambiate il nome del file all'interno del template, seguendo i commenti. Altrimenti tenetevi il cane.  </p>
+
+<p>Se avete scritto una tesi a quattro mani o avete la sfortuna di avere due relatori o, peggio ancora, avete un tutor aziendale, non disperate. L'esempio presenta già i campi necessari. Nel caso in cui non vi servano, invece, fate in modo di cancellarli come suggerito dai commenti.</p>
+
+<p>Per ogni altra particolare personalizzazione, vi prego di rifarvi alla documentazione di <a href="http://mirrors.ctan.org/macros/latex/contrib/toptesi/toptesi.pdf">TopTesi</a>.</p>
+
+<h3>
+<a name="lista-capitoli" class="anchor" href="#lista-capitoli"><span class="octicon octicon-link"></span></a>Lista capitoli</h3>
+
+<p>Cercate la dicitura <strong>includeonly</strong>. L'elenco sottostante dovrà corrispondere alla vostra lista dei <strong>capitoli</strong> ed <strong>appendici</strong>. LaTeXi consiglia di seguire la regola aurea <em>un capitolo = un file</em>. Vi prego anche di seguire il formato usato nell'esempio.</p>
+
+<p>Subito sotto l'elenco dei capitoli, potete modificare il nome del file di <strong>bibliografia</strong>. LaTeXi presenta già un file chiamato <strong>bibliography</strong> già pronto da usare. </p>
+
+<h3>
+<a name="dedica-e-citazioni" class="anchor" href="#dedica-e-citazioni"><span class="octicon octicon-link"></span></a>Dedica e Citazioni</h3>
+
+<p>Queste due sezioni sono opzionali. Se odiate tutte le forme di vita di questo quadrante d'universo e l'ultimo libro che avete letto è il manuale del Nokia 3310, siete liberi di eliminarle. Per le persone normali, invece, viene proposto un allineamento orizzontale a destra, un allineamento verticale ad un sesto della pagina e l'uso del corsivo per la fonte citata.</p>
+
+<p>Siete liberissimi di cambiare lo stile del testo: potete allinearlo a sinistra o al centro o più in basso o più in alto, seguendo i commenti o facendo di testa vostra (io ho usato una tabulazione sinistra a 10 cm dal margine dal margine destro, per esempio).</p>
+
+<h3>
+<a name="ringraziamenti" class="anchor" href="#ringraziamenti"><span class="octicon octicon-link"></span></a>Ringraziamenti</h3>
+
+<p>Anche questa sezione è opzionale. Vi cosiglio di evitare di superare la pagina, se possibile. Qualunque cosa succeda non superate le due pagine, ma siate consapevoli che una doppia pagina di ringraziamenti ha una probabilità del 50% di creare problemi in stampa, soprattutto se il vostro tipografo di fiducia è un cretino.</p>
+
+<h3>
+<a name="sommario-o-abstract" class="anchor" href="#sommario-o-abstract"><span class="octicon octicon-link"></span></a>Sommario o Abstract</h3>
+
+<p>Più un promemoria che altro. Scrivete il vostro sommario o abstract dove indicato dai commenti e tutto andrà liscio.</p>
+
+<h3>
+<a name="indici-e-varie" class="anchor" href="#indici-e-varie"><span class="octicon octicon-link"></span></a>Indici e varie</h3>
+
+<p>LaTeXi presenta di default i seguenti indici:</p>
+
+<ul>
+<li>Indice generale</li>
+<li>Indice delle figure</li>
+<li>Indice delle tabelle</li>
+<li>Indice dei listati</li>
+</ul><p>Se un indice non vi serve (mai mettere un indice delle tabelle, se non avete tabelle!!!), semplicemente <strong>eliminatelo</strong>.
+Prima di tutto, spegni e riaccendi. Secondo, prova a cercare su internet il messaggio di errore: il 99% delle volte è solo una parentesi non chiusa o un _ senza . Se sei convinto sia colpa del template, scrivi un commento sulla pagina di <a href="http://www.google.com">LaTeXi</a>. Proveremo a cercare una soluzione insieme il prima possibile. 
+Se volete aggiungere un indice, seguite l'esempio di quello per i listati poco sotto l'elenco delle dipendenze. I commenti vi indicheranno la sezione adatta. (Avviso: aggiungere un indice è un'operazione complessa. Vi sconsiglio di farlo, se siete alle prime armi.)</p>
+
+<p>Poco sopra vi è anche la possibilità di modificare lo stile dei dei collegamenti ipertestuali (in pratica i colori) e la sintassi default, insieme ai colori per le parole chiave, da usare per i listati.</p>
+
+<h3>
+<a name="lista-capitoli-s%C3%AC-di-nuovo" class="anchor" href="#lista-capitoli-s%C3%AC-di-nuovo"><span class="octicon octicon-link"></span></a>Lista capitoli (sì, di nuovo)</h3>
+
+<p>Sì, una <strong>seconda lista dei capitoli</strong>. Per gli utenti base, questa lista va assolutamente <strong>allineata</strong> con la precedente (gli utenti avanzati, invece, sanno benissimo come crearsi problemi da soli). È importante notare che la mancata inclusione di un capitolo in una delle due liste, lo farà sparire dal corpo della tesi. (Lo so che è una scocciatura, ma è per il vostro bene, fidatevi.)</p>
+
+<p>Questa seconda lista, che è nel corpo del documento (mentre la prima era nel preambolo) è quella che effettivamente <strong>include</strong> i vari file con i capitoli all'interno della tesi. Ogni <strong>include</strong> verrà sostituito dal capitolo corrispondente.</p>
+
+<hr><h1>
+<a name="faq" class="anchor" href="#faq"><span class="octicon octicon-link"></span></a>FAQ</h1>
+
+<p><strong><em>Sono alle prime armi con LaTeX, dove posso trovare altre informazioni?</em></strong></p>
+
+<p>La rete amica e alleata ti è, giovane Padawan. Ed il mio <a href="http://www.google.com">blog</a> pure. </p>
+
+<p><strong>Ho un problema con LaTeXi! Che faccio?</strong></p>
+
+<p>Prima di tutto, spegni e riaccendi. Secondo, fai il clean dei file temporanei. Terzo, prova a cercare su internet il messaggio di errore: il 99% delle volte è solo una parentesi non chiusa o un _ senza . Se sei convinto sia colpa del template, scrivi un commento sulla pagina di <a href="http://www.google.com">LaTeXi</a>. Proveremo a cercare una soluzione insieme il prima possibile. Se sai usare GitHub, invece, apri un issue.</p>
+
+<p><strong>Non ci sono gli acronimi!!!</strong></p>
+
+<p>Ehm, sì, non ci sono gli acronimi. Lo so che alcuni professori vogliono la lista degli acronimi ed è comprensibile che voi vogliate accontentarli. Ma, dopo aver provato sulla mia pelle pacchetti come <em>acronym</em> e <em>glossary</em>, penso che tutta la complessità aggiunta dal loro uso (compilazioni accessorie, indice aggiuntivo, riferimenti, etc.) potrebbero danneggiare seriamente l'usabilità di LaTeXi dal punto di vista degli utenti meno esperti. LateXi ha come mantra quello di essere semplice da usare. Sinceramente, non credo che il gioco valga la candela. Inoltre, LaTeXi è un template, potete sempre aggiungerli voi! Comunque sono disposto a discuterne, in un commento o in un issue.</p>
+
+<p><strong>Oh, due file diversi per l'inglese e l'italiano! Uuuh, code replication! Brrr...</strong></p>
+
+<p>Sì, sì, sì, hai perfettamente ragione. Tuttavia, LaTeXi è pensata soprattutto per un utenza che non ha grande dimestichezza con LaTeX e con la programmazione in generale. Dividere le due lingue, che hanno configurazioni differenti per frontespizio e titoli delle sezioni, risparmia all'utente un bel po' di personalizzazioni e permette di dare dei simpatici valori di default che variano in base alla lingua. Certo, è un compromesso, ma il Keep It Simple Stupid ha sempre la meglio. Se desideri discuterne ancora, apri un issue. </p>
+
+<p><strong>Perché LaTeXi è un template e non un pacchetto?</strong></p>
+
+<p>Perché un valido pacchetto per scrivere tesi per gli atenei italiani c'è già e si chiama <a href="http://www.ctan.org/tex-archive/macros/latex/contrib/toptesi">TopTesi</a>. L'idea che sta dietro LaTeXi è quella di essere un template <strong>già funzionante</strong> e pronto per essere <strong>personalizzato in pochissimo tempo</strong>, soprattutto da utenti <strong>poco esperti</strong>.</p>
+
+<p>Non era mia intenzione rimpacchettare tutte le funzioni di TopTesi in un pacchetto che non aggiunge nessuna funzionalità e che avrebbe richiesto una discreta conoscenza di LaTeX per essere usato. LaTeXi si ispira, invece, alla pratica più comune per gli utenti LaTeX: copiare un vecchio documento e cambiargli il titolo. LaTeXi è la tesi che vi avrebbe passato il vostro amico appena laureato.</p>
+
+<p><strong>Ma il codice è in bianco e nero! Buuuuh, volevo i colori...</strong></p>
+
+<p>LaTeXi è stata pensata per avere una discreta resa di stampa in qualsiasi condizione, anche in bianco e nero. Per questo l'unico colore utilizzato oltre al nero è il blu (ben poco blu, solo per alcuni tipi di collegamenti). Comunque, non ti negherò che anche a me piace il codice con i colori dell'arcobaleno e gli unicorni. Anzi, <em>ogni colorazione di sintassi per listing</em> è ben accetta e raccomandata. Se ne siete in possesso, fate una pull request o scrivete un commento sulla pagina di <a href="http://www.google.com">LaTeXi</a> (soprattutto se per Matlab, linguaggio usato da molta gente senza praticamente nessuna base di programmazione, la quale ne beneficerebbe senz'altro). Sarò felicissimo di aggiungerle come commenti! :) </p>
+
+<p><strong>Ma ci sono dei warning! Buuuh...</strong></p>
+
+<p>Sì, è pieno di warning. Aiutatemi a correggerli, invece di lamentarvi!</p>
+
+<p><strong>Mi scoccia poter compilare solo dal documento principale! Perché non hai usato il pacchetto <em>subfile</em>?</strong></p>
+
+<p>Sì, scoccia anche a me. Ma <em>subfile</em> introduce troppa complessità d'uso per gli utenti più inesperti, che si troverebbero ad avere anche un file template per ogni capitolo (e qualche altro problema in più). Se ne può parlare, in un commento o in un issue, ma non credo che il gioco valga la candela, ora come ora.</p>
+
+<p><strong>Mi piacerebbe partecipare al progetto! Come faccio?</strong></p>
+
+<p>Siamo su GitHub, amico! Se hai del codice da aggiungere fai pure una pull request o, se hai trovato un bug o vuoi richiedere una feature, apri un issue. Se non sai di cosa sto parlando, vai sulla pagina di <a href="http://www.google.com">LaTeXi</a> e scrivi un commento! Ti risponderò appena mi sveglio (sì, di solito dormo).</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">LaTeXi maintained by <a href="https://github.com/poros">poros</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
