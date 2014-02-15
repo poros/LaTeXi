@@ -131,7 +131,7 @@ LaTeXi presenta di default i seguenti indici:
 * Indice dei listati
 
 Se un indice non vi serve (mai mettere un indice delle tabelle, se non avete tabelle!!!), semplicemente __eliminatelo__.
-Prima di tutto, spegni e riaccendi. Secondo, prova a cercare su internet il messaggio di errore: il 99% delle volte è solo una parentesi non chiusa o un _ senza \\. Se sei convinto sia colpa del template, scrivi un commento sulla pagina di [LaTeXi](http://www.google.com). Proveremo a cercare una soluzione insieme il prima possibile. 
+
 Se volete aggiungere un indice, seguite l'esempio di quello per i listati poco sotto l'elenco delle dipendenze. I commenti vi indicheranno la sezione adatta. (Avviso: aggiungere un indice è un'operazione complessa. Vi sconsiglio di farlo, se siete alle prime armi.)
 
 Poco sopra vi è anche la possibilità di modificare lo stile dei dei collegamenti ipertestuali (in pratica i colori) e la sintassi default, insieme ai colori per le parole chiave, da usare per i listati.
