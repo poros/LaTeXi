@@ -36,7 +36,7 @@ LaTeXi è composta da due file principali: __tesi.tex__ per tesi in lingua itali
 
 ## Dipendenze
 
-Questo guida non dà consigli su editor LaTeX o su problemi di installazione particolari. Il mio [blog](http://www.google.com), invece, sì.
+Questa guida non dà consigli su editor LaTeX o su problemi di installazione particolari. Internet, invece, sì.
 
 Le dipendenze di LaTeXi sono innumerevoli, ma non tutte sono attivamente utilizzate dal template. Nella lista figurano tutti quei pacchetti che hanno una probabilità medio-alta di essere utilizzati in una comune tesi di laurea. Quando nel bel mezzo della tesi vorrete posizionare un'immagine in maniera assoluta, scrivere una formula o inserire del codice, controllate la lista di pacchetti già inclusi. Probabilmente quello che cercate è già lì in mezzo.
 
@@ -148,11 +148,11 @@ Questa seconda lista, che è nel corpo del documento (mentre la prima era nel pr
 
 * ___Sono alle prime armi con LaTeX, dove posso trovare altre informazioni?___
 
-    La rete amica e alleata ti è, giovane Padawan. Ed il mio [blog](http://www.google.com) pure. 
+    La rete amica e alleata ti è, giovane Padawan. Comunque, ecco un [ottimo sito](http://www.google.com) da cui cominciare a cercare. 
 
 * __Ho un problema con LaTeXi! Che faccio?__
 
-    Prima di tutto, spegni e riaccendi. Secondo, fai il clean dei file temporanei. Terzo, prova a cercare su internet il messaggio di errore: il 99% delle volte è solo una parentesi non chiusa o un _ senza \. Se sei convinto sia colpa del template, scrivi un commento sulla pagina di [LaTeXi](http://www.google.com). Proveremo a cercare una soluzione insieme il prima possibile. Se sai usare GitHub, invece, apri un issue.
+    Prima di tutto, spegni e riaccendi. Secondo, fai il clean dei file temporanei. Terzo, prova a cercare su internet il messaggio di errore: il 99% delle volte è solo una parentesi non chiusa o un _ senza \. Se sei convinto sia colpa del template, scrivi un commento sulla pagina di [LaTeXi](http://poros.github.io/LaTeXi/). Proveremo a cercare una soluzione insieme il prima possibile. Se sai usare GitHub, invece, apri un issue.
 
 * __Non ci sono gli acronimi!!!__
 
@@ -170,7 +170,7 @@ Questa seconda lista, che è nel corpo del documento (mentre la prima era nel pr
 
 * __Ma il codice è in bianco e nero! Buuuuh, volevo i colori...__
 
-    LaTeXi è stata pensata per avere una discreta resa di stampa in qualsiasi condizione, anche in bianco e nero. Per questo l'unico colore utilizzato oltre al nero è il blu (ben poco blu, solo per alcuni tipi di collegamenti). Comunque, non ti negherò che anche a me piace il codice con i colori dell'arcobaleno e gli unicorni. Anzi, _ogni colorazione di sintassi per listing_ è ben accetta e raccomandata. Se ne siete in possesso, fate una pull request o scrivete un commento sulla pagina di [LaTeXi](http://www.google.com) (soprattutto se per Matlab, linguaggio usato da molta gente senza praticamente nessuna base di programmazione, la quale ne beneficerebbe senz'altro). Sarò felicissimo di aggiungerle come commenti! :) 
+    LaTeXi è stata pensata per avere una discreta resa di stampa in qualsiasi condizione, anche in bianco e nero. Per questo l'unico colore utilizzato oltre al nero è il blu (ben poco blu, solo per alcuni tipi di collegamenti). Comunque, non ti negherò che anche a me piace il codice con i colori dell'arcobaleno e gli unicorni. Anzi, _ogni colorazione di sintassi per listing_ è ben accetta e raccomandata. Se ne siete in possesso, fate una pull request o scrivete un commento sulla pagina di [LaTeXi](http://poros.github.io/LaTeXi/) (soprattutto se per Matlab, linguaggio usato da molta gente senza praticamente nessuna base di programmazione, la quale ne beneficerebbe senz'altro). Sarò felicissimo di aggiungerle come commenti! :)
 
 * __Ma ci sono dei warning! Buuuh...__
 
@@ -182,4 +182,4 @@ Questa seconda lista, che è nel corpo del documento (mentre la prima era nel pr
 
 * __Mi piacerebbe partecipare al progetto! Come faccio?__
 
-    Siamo su GitHub, amico! Se hai del codice da aggiungere fai pure una pull request o, se hai trovato un bug o vuoi richiedere una feature, apri un issue. Se non sai di cosa sto parlando, vai sulla pagina di [LaTeXi](http://www.google.com) e scrivi un commento! Ti risponderò appena mi sveglio (sì, di solito dormo).
+    Siamo su GitHub, amico! Se hai del codice da aggiungere fai pure una pull request o, se hai trovato un bug o vuoi richiedere una feature, apri un issue. Se non sai di cosa sto parlando, vai sulla pagina di [LaTeXi](http://poros.github.io/LaTeXi/) e scrivi un commento! Ti risponderò appena mi sveglio (sì, di solito dormo).
