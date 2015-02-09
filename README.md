@@ -1,6 +1,8 @@
 LaTeXi
 ======
 
+Puoi trovare la versione figa di questa guida [qui](http://poros.github.io/LaTeXi/).
+
 LaTeXi è un template LaTeX per tesi di laurea in italiano ed inglese. Il suo obiettivo principale è abbattere il monte annuo di imprecazioni lanciate contro LaTeX dagli studenti universitari.
 
 LaTeXi è realizzato in modo da essere facile e veloce da usare anche per persone che muovono i primi passi con LaTeX. Il template è già pronto per la compilazione ed i commenti e questo documento vi guideranno gradualmente nella personalizzazione, dal frontespizio all'elenco dei capitoli.
@@ -146,13 +148,13 @@ Questa seconda lista, che è nel corpo del documento (mentre la prima era nel pr
 
 # FAQ
 
-* ___Sono alle prime armi con LaTeX, dove posso trovare altre informazioni?___
+* __Sono alle prime armi con LaTeX, dove posso trovare altre informazioni?__
 
     La rete amica e alleata ti è, giovane Padawan. Comunque, ecco un [ottimo sito](http://www.google.com) da cui cominciare a cercare. 
 
 * __Ho un problema con LaTeXi! Che faccio?__
 
-    Prima di tutto, spegni e riaccendi. Secondo, fai il clean dei file temporanei. Terzo, prova a cercare su internet il messaggio di errore: il 99% delle volte è solo una parentesi non chiusa o un _ senza \. Se sei convinto sia colpa del template, scrivi un commento sulla pagina di [LaTeXi](http://poros.github.io/LaTeXi/). Proveremo a cercare una soluzione insieme il prima possibile. Se sai usare GitHub, invece, apri un issue.
+    Prima di tutto, spegni e riaccendi. Secondo, fai il clean dei file temporanei. Terzo, prova a cercare su internet il messaggio di errore: il 99% delle volte è solo una parentesi non chiusa o un _ senza \\. Se sei convinto sia colpa del template, scrivi un commento sulla pagina di [LaTeXi](http://poros.github.io/LaTeXi/). Proveremo a cercare una soluzione insieme il prima possibile. Se sai usare GitHub, invece, apri un issue.
 
 * __Non ci sono gli acronimi!!!__
 
