@@ -113,7 +113,7 @@ Subito sotto l'elenco dei capitoli, potete modificare il nome del file di __bibl
 
 Queste due sezioni sono opzionali. Se odiate tutte le forme di vita di questo quadrante d'universo e l'ultimo libro che avete letto è il manuale del Nokia 3310, siete liberi di eliminarle. Per le persone normali, invece, viene proposto un allineamento orizzontale a destra, un allineamento verticale ad un sesto della pagina e l'uso del corsivo per la fonte citata.
 
-Siete liberissimi di cambiare lo stile del testo: potete allinearlo a sinistra o al centro o più in basso o più in alto, seguendo i commenti o facendo di testa vostra (io ho usato una tabulazione sinistra a 10 cm dal margine dal margine destro, per esempio).
+Siete liberissimi di cambiare lo stile del testo: potete allinearlo a sinistra o al centro o più in basso o più in alto, seguendo i commenti o facendo di testa vostra (io ho usato una tabulazione sinistra a 10 cm dal margine destro, per esempio).
 
 ### Ringraziamenti
 
