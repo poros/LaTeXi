@@ -1,0 +1,131 @@
+%%
+%% This is file `topcoman.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% toptesi.dtx  (with options: `topcmn')
+%%   ______________________________________________________
+%%   The TOPtesi package
+%%   Copyright (C) 2013 Claudio Beccari
+%%   All rights reserved
+%% 
+%%   License information appended
+%% 
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+\NeedsTeXFormat{LaTeX2e} % lavora solo con LaTeX 2e
+\ProvidesPackage{topcoman}%
+    [2013/09/01 v.5.73 Additional commands for the TOPtesi bundle]
+\RequirePackage{ifxetex}
+\ifxetex\else
+\newcommand*\DeclareSlantedCapitalGreekLetters{%
+   \mathchardef\Gamma="7100
+   \mathchardef\Delta="7101
+   \mathchardef\Theta="7102
+   \mathchardef\Lambda="7103
+   \mathchardef\Xi="7104
+   \mathchardef\Pi="7105
+   \mathchardef\Sigma="7106
+   \mathchardef\Upsilon="7107
+   \mathchardef\Phi="7108
+   \mathchardef\Psi="7109
+   \mathchardef\Omega="710A
+}\fi
+\providecommand{\ensuremath}[1]{\ifmmode#1\else$#1$\fi}%
+\providecommand\textormath{}
+\renewcommand{\textormath}{\ifmmode\expandafter\@secondoftwo\else
+    \expandafter\@firstoftwo\fi}
+\providecommand*\textsubscript{\raisebox{-0.5ex}}
+\ifxetex\else
+\RequirePackage{textcomp}
+\fi
+\providecommand{\ohm}{\textormath{\textohm}{\mathrm{\Omega}}}
+\providecommand{\ped}[1]{\textormath{\textsubscript{#1}}{_{\mathrm{#1}}}}
+\providecommand{\ap}[1]{\textormath{\textsuperscript{#1}}{^{\mathrm{#1}}}}
+\providecommand{\unit}[1]{\ensuremath{{\mathrm{\,#1}}}}
+\providecommand{\gei}{\ensuremath{{\mathop{\mathrm{j}}\nolimits}}}
+\providecommand{\eu}{\ensuremath{{\mathop{\mathrm{e}}\nolimits}}}
+\providecommand{\micro}{\textormath{\textmu}{\ifxetex\mathup{μ}\else
+    \ifx\muup\undefined\mu\else\muup\fi\fi}}
+\providecommand{\gradi}{\textormath{\textdegree}{^\circ}}
+\def\listing#1{\par\begingroup
+\programma \input #1 \endgroup}
+\def\uncatcodespecials{\def\do##1{\catcode`##1=12}\dospecials}
+\def\programma{\ttfamily\footnotesize \parindent 0pt
+\def\par{\leavevmode\egroup\box0\endgraf}
+\catcode`\`=\active \catcode`\^^I=\active \catcode`\^^L=\active
+\obeylines \uncatcodespecials \obeyspaces
+\begingroup\lccode`~=`\ \lowercase{\endgroup\global\let~}\ %
+\everypar{\startbox}}
+\newdimen\tabwidth
+\setbox0=\hbox{\ttfamily\footnotesize\space}
+\tabwidth=8\wd0
+\def\startbox{\setbox0=\hbox\bgroup}
+{\catcode`\`=\active \gdef`{\relax\lq}}
+{\catcode`\^^I=\active
+\gdef^^I{\leavevmode\egroup \dimen0=\wd0
+\divide\dimen0 by\tabwidth
+\multiply\dimen0 by\tabwidth
+\advance\dimen0 by\tabwidth
+\wd0=\dimen0 \box0 \startbox}}
+{\catcode`\^^L=\active \global\let^^L\newpage}
+\DeclareRobustCommand*{\simulatedSC}[1]{%
+{\check@mathfonts\fontsize{\sf@size}{\f@baselineskip}\selectfont#1}}%
+\def\ft@figure{\iflanguage{italian}{\MakeLowercase{\figurename}}%
+            {\figurename}~}
+\def\ft@table{\iflanguage{italian}{\MakeLowercase{\tablename}}%
+            {\tablename}~}
+\newcommand*\EnableFigTabNames{%
+            \let\p@figure\ft@figure\let\p@table\ft@table}
+\newcommand*\DisableFigTabNames{%
+            \let\p@figure\empty\let\p@table\empty}
+\DisableFigTabNames
+%% 
+%% Copyright 2005-2013 Claudio Beccari
+%% 
+%% Distributable under the LaTeX Project Public License,
+%% version 1.3c or higher (your choice). The latest version of
+%% this license is at: http://www.latex-project.org/lppl.txt
+%% 
+%% This work is "author-maintained"
+%% 
+%% This work consists of this file toptesi.dtx, a README file
+%% and the derived files:
+%% 
+%% toptesi.cls, toptesi.sty, topfront.sty, topcommand.sty,
+%% toptesi.cfg, and the English documentation toptesi.pdf.
+%% 
+%% Furthermore the bundle contains the documentation source
+%% file toptesi-doc-xetex.tex and the derived file
+%% toptesi-doc-xetex.pdf.
+%% 
+%% The toptesi-example.tex source file is just an example
+%% that shows how to use the various commands; by commenting
+%% or uncommenting certain source lines it is possible to
+%% typeset different kind of theses and their frontpages.
+%% 
+%% The toptesi.cfg file is a sample of a local configuration
+%% file that can be freely edited and modified.
+%% 
+%% By running pdflatex on toptesi.dtx the user gets the class,
+%% sty and cfg files and the English documentation file in
+%%  pdf format.
+%% 
+%% The documentation file toptesi-doc-xetex.pdf is in Italian;
+%% its source file is another example of how to use toptesi.
+%%
+%% End of file `topcoman.sty'.

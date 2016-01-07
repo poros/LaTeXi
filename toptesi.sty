@@ -1,0 +1,552 @@
+%%
+%% This is file `toptesi.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% toptesi.dtx  (with options: `topsty')
+%%   ______________________________________________________
+%%   The TOPtesi package
+%%   Copyright (C) 2013 Claudio Beccari
+%%   All rights reserved
+%% 
+%%   License information appended
+%% 
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{toptesi}%
+[2013/09/01 v.5.73 Extension for toptesi.cls]%
+\def\TRON{\tracingcommands \tw@ \tracingmacros \tw@}
+\def\TROFF{\tracingcommands\z@ \tracingmacros \z@}
+\let\TROF\TROFF
+\newif\if@utoretitolo \@utoretitolofalse
+\newif\if@ldstyle \@ldstylefalse
+\newif\if@xivpt \@xivptfalse
+\newlength\T@Pbinding\setlength\T@Pbinding{7mm}
+\def\setbindingcorrection#1{\T@Pbinding=#1}
+\newif\if@binding \@bindingfalse
+\newif\ifT@Ppdfa  \T@Ppdfafalse
+\newif\ifchapterbibliography \chapterbibliographyfalse
+\newif\ifclassica \classicafalse
+\DeclareOption{cucitura}{\@bindingtrue}
+\DeclareOption{14pt}{\@xivpttrue}
+\DeclareOption{chapterbib}{\chapterbibliographytrue}
+\DeclareOption{trieste}{\classicatrue}% Just for backwards compatibility
+\DeclareOption{classica}{\classicatrue}
+\DeclareOption{autoretitolo}{\ifclassica\@utoretitolotrue\fi}
+\DeclareOption{oldstyle}{\ifclassica\@ldstyletrue\fi}
+\DeclareOption{pdfa}{\T@Ppdfatrue}
+\ProcessOptions\relax
+\RequirePackage{graphicx}
+\RequirePackage{etoolbox}
+\if@xivpt\input{size14.clo}\fi
+\newlength\interno
+\textheight 0.7\paperheight
+\divide\textheight by \baselineskip
+\multiply\textheight by \baselineskip
+\advance\textheight by \topskip
+\ifx\f@size\@xivpt
+    \setlength\interno{\dimexpr\paperwidth/6}
+    \footskip=1,5\basleineskip
+\else
+    \setlength\interno{\dimexpr\paperwidth/7}
+    \footskip=2\baselineskip
+\fi
+\oddsidemargin=\dimexpr\interno-1in\relax
+\evensidemargin=\oddsidemargin
+\marginparwidth\interno
+\advance\marginparwidth-2.5\marginparsep
+\AtBeginDocument{%
+\if@binding
+ \PackageInfo{TOPtesi}{Margin width recalculation}
+ \PackageInfo{TOPtesi}{Before:\MessageBreak
+ oddsidemargin\space\space \the\oddsidemargin\MessageBreak
+ evensidemargin\space \the\evensidemargin}
+ \advance\oddsidemargin \T@Pbinding
+ \advance\evensidemargin -\T@Pbinding
+ \advance\marginparwidth -\T@Pbinding
+ \PackageInfo{TOPtesi}{After:\MessageBreak
+ oddsidemargin\space\space \the\oddsidemargin\MessageBreak
+ evensidemargin\space \the\evensidemargin}
+\fi}
+\textwidth=\dimexpr\paperwidth-2\interno\relax
+
+\def\lapagina{\thepage}
+\mark{{}{}}
+\newbox\@intesta
+\def\ps@plain{\let\@mkboth\@gobbletwo
+\def\@oddfoot{\null\hfill {\scshape\lapagina}\hfill \null}\def\@oddhead{}
+\def\@evenhead{}\let\@evenfoot\@oddfoot}
+\if@twoside
+   \def\ps@headings{\let\@mkboth\markboth%
+   \def\@oddfoot{\null\hfill {\scshape\lapagina} \hfill\null}
+   \let\@evenfoot\@oddfoot
+   %
+   \def\@evenhead{\setbox\@intesta\hbox{\footnotesize\slshape
+        \leftmark}%
+   \ifdim\wd\@intesta>\textwidth \headWarn{\chapter}\fi%
+   \underline{\makebox[\textwidth]{\footnotesize\slshape
+        \strut\leftmark}}}%
+   \def\@oddhead{\setbox\@intesta\hbox{\footnotesize\slshape
+        \rightmark}%
+   \ifdim\wd\@intesta>\textwidth \headWarn{\section}\fi%
+   \underline{\makebox[\textwidth]{\footnotesize\slshape
+        \strut\rightmark}}}%
+   \def\chaptermark##1{\markboth{\thechapter\ -- ##1}{}}
+   \def\sectionmark##1{\markright{\ifnum\c@secnumdepth>\z@
+   \thesection\ -- \fi ##1}}}
+\else
+   \def\ps@headings{\let\@mkboth\markboth
+   \def\@oddfoot{\null\hfill {\scshape\lapagina} \hfill\null}
+   \def\@evenfoot{}
+   \def\@oddhead{\setbox\@intesta\hbox{\footnotesize\slshape
+        \rightmark}%
+   \ifdim\wd\@intesta>\textwidth \headWarn{\chapter}\fi%
+   \underline{\makebox[\textwidth]{\footnotesize\slshape
+        \strut\rightmark}}}%
+   \def\chaptermark##1{\markright{\thechapter\ -- ##1}}}
+\fi
+
+\def\headWarn#1{\PackageWarning{toptesi}{%
+   THE HEADING IS TOO LONG\MessageBreak
+   Use the optional argument of command \string#1\MessageBreak
+   See the LaTeX Handbook (1994) on section C.4.1\MessageBreak}}
+\renewcommand*\l@chapter[2]{%
+  \ifnum \c@tocdepth >\m@ne
+    \addpenalty{-\@highpenalty}%
+    \vskip 1.0em \@plus\p@
+    \setlength\@tempdima{1.5em}%
+    \begingroup
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode \bfseries
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      #1\nobreak\hfil \nobreak
+      \hb@xt@\@pnumwidth{\hss\unless\ifxetex\normalfont\fi\scshape{#2}}\par
+      \penalty\@highpenalty
+    \endgroup
+  \fi}
+\newif\iffigurespage
+\newif\iftablespage
+\newif\ifnumeriromani
+\newif\iffrontmatter
+\def\frontmatter{\clearpage\ps@plain\pagenumbering{roman}%
+    \numeriromanitrue\frontmattertrue\@openrightfalse}
+\def\mainmatter{\if@twoside\@openrighttrue\fi
+    \clearpage\ps@headings\pagenumbering{arabic}%
+    \numeriromanifalse\frontmatterfalse}
+\AtBeginDocument{\frontmatter}
+\figurespagefalse
+\tablespagefalse
+\newcommand\blankpagestyle[1]{\def\blank@ps{#1}}
+\def\blank@ps{plain}
+\renewcommand\cleardoublepage{\clearpage\ifodd\value{page}\else
+   \if@twoside\if@openright
+\clearpage\null\thispagestyle{\blank@ps}\clearpage\fi\fi\fi}
+\def\sommario{%
+ \iffrontmatter\else\frontmattertrue\fi
+ \if@openright\cleardoublepage\else\clearpage\fi
+ \global\@topnum\z@
+ \@afterindentfalse
+ \@schapter{\summaryname}%
+ \addcontentsline{toc}{chapter}{\summaryname}%
+        }
+\def\ringraziamenti{%
+ \iffrontmatter\else\frontmattertrue\fi
+ \if@openright\cleardoublepage\else\clearpage\fi
+ \global\@topnum\z@
+ \@afterindentfalse
+ \@schapter{\acknowledgename}%
+ \addcontentsline{toc}{chapter}{\acknowledgename}%
+        }
+\renewcommand\chapter{%
+  \iffrontmatter\mainmatter\fi
+  \if@openright\cleardoublepage\else\clearpage\fi
+  \thispagestyle{plain}%
+  \global\@topnum\z@
+  \@afterindentfalse
+  \secdef\@chapter\@schapter}
+\renewcommand\part{%
+  \iffrontmatter\mainmatter\fi
+  \if@openright\cleardoublepage\else\clearpage\fi
+  \thispagestyle{empty}%
+  \if@twocolumn\onecolumn\@tempswatrue\else\@tempswafalse\fi
+  \null\vfil
+  \secdef\@part\@spart}
+\renewcommand\tableofcontents{%
+ \if@twocolumn\@restonecoltrue\onecolumn\else\@restonecolfalse\fi
+ \if@openright\cleardoublepage\else\clearpage\fi
+ \global\@topnum\z@
+ \@afterindentfalse
+ \@schapter{\contentsname}%
+ \@starttoc{toc}%
+ \clearpage
+ \if@restonecol\twocolumn\fi
+    }
+\renewcommand\listoffigures{%
+    \if@twocolumn\@restonecoltrue\onecolumn\else\@restonecolfalse\fi
+    \if@openright\cleardoublepage\else\clearpage\fi
+    \global\@topnum\z@
+    \@afterindentfalse
+    \@schapter{\listfigurename}
+    \@mkboth{\listfigurename}{\listfigurename}%
+    \@starttoc{lof}%
+    \clearpage
+    \if@restonecol\twocolumn\fi
+    }
+\renewcommand\listoftables{%
+    \if@twocolumn\@restonecoltrue\onecolumn\else\@restonecolfalse\fi
+    \if@openright\cleardoublepage\else\clearpage\fi
+    \global\@topnum\z@
+    \@afterindentfalse
+    \@schapter{\listtablename}%
+    \@mkboth{\listtablename}{\listtablename}%
+    \@starttoc{lot}%
+    \clearpage
+    \if@restonecol\twocolumn\fi
+    }
+\def\indici{%
+ \iffrontmatter\else\frontmattertrue\fi
+        \tableofcontents
+        \iftablespage
+                {\addvspace{10pt}
+                \let\saveaddvspace=\addvspace
+                \def\addvspace##1{}
+                \listoftables
+                \let\addvspace=\saveaddvspace}
+        \fi
+        \iffigurespage
+                {\addvspace{10pt}
+                \let\saveaddvspace=\addvspace
+                \def\addvspace##1{}
+                \listoffigures
+                \let\addvspace=\saveaddvspace}
+        \fi
+}
+\onecolumn
+\if@twoside
+    \flushbottom
+\else
+    \ifx\@xivpt\f@size
+        \raggedbottom
+    \else
+        \flushbottom
+    \fi
+\fi
+\brokenpenalty=10000
+\def\interlinea#1{\linespread{#1}\selectfont}
+\def\endinterlinea{\par}
+\def \@floatboxreset {%
+        \reset@font
+        \linespread{1}%
+        \normalsize
+        \@setminipage
+}
+\def\fps@figure{htb} \def\fps@table{htb}
+\setcounter{topnumber}{2}
+\def\topfraction{1}
+\setcounter{bottomnumber}{1}
+\def\bottomfraction{.5}
+\setcounter{totalnumber}{3}
+\def\textfraction{0}
+\def\floatpagefraction{0}
+\setcounter{dbltopnumber}{2}
+\def\dbltopfraction{1}
+\def\dblfloatpagefraction{0}
+\newdimen\captionwidth
+\long\def\@makecaption#1#2{%
+   \begingroup
+   \small \parskip\z@ \parindent\z@
+   \finalhyphendemerits 100000\relax
+   \linespread{0.95}\selectfont
+   \vskip \abovecaptionskip
+   \captionwidth=\hsize
+   \advance\captionwidth-3em
+   \setbox0 \hbox{#1.\quad#2}%
+   \ifdim\wd0>\hsize
+      \setbox1 \vbox{\hsize=\captionwidth
+      \unhbox0\par\global\setbox2\lastbox}%
+      \setbox2\hbox{\unhbox2}%
+      \ifdim\wd2<0.333333\captionwidth
+         \count255=\ht1 \advance\count255 \dp1
+         \divide\count255\baselineskip
+         \advance\count255\@ne
+         \@tempdima=\wd2
+         \advance\@tempdima \count255\captionwidth
+         \advance\@tempdima 0.5\captionwidth
+         \advance \count255\@ne
+         \divide \@tempdima \count255
+         \captionwidth=\@tempdima
+         \setbox0 \vbox{\hsize\captionwidth
+         #1.\quad#2}
+      \else
+         \setbox2\hbox to\captionwidth{\unhbox2 \hfill}%
+         \setbox0\vbox{\unvbox1\box2}%
+      \fi
+   \fi
+   \makebox[\hsize]{\box0}%
+   \endgroup
+}
+\def\redef@bibitem{\def\@bibitem##1{\item\if@filesw
+       \immediate\write\@auxout
+       {\string\bibcite{##1}{\thechapter.\the\c@enumi}}\fi\ignorespaces}}
+\def\thebibliography#1{%
+ \ifchapterbibliography\section*{\bibname}\relax
+    \if@twoside\markright{\bibname}\fi
+    \addcontentsline{toc}{section}{\bibname}\relax
+    \redef@bibitem
+    \list{[\thechapter.\arabic{enumi}]}{%
+    \settowidth\labelwidth{[\thechapter.#1]}\leftmargin\labelwidth
+    \advance\leftmargin\labelsep\itemsep\z@ plus 1pt\parsep\z@
+    \usecounter{enumi}}
+ \else
+    \chapter*{\bibname}\relax
+    \@mkboth{\bibname}{\bibname}\relax
+    \addcontentsline{toc}{chapter}{\bibname}\relax
+    \list{[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}%
+    \leftmargin\labelwidth
+    \advance\leftmargin\labelsep\itemsep\z@ plus 1pt\parsep\z@
+    \usecounter{enumi}}
+ \fi
+ \def\newblock{\hskip .11em plus .33em minus -.07em}
+ \sloppy
+ \sfcode`\.=1000\relax}
+
+\let\endthebibliography=\endlist
+\long\def\@footnotetext#1{\insert\footins{\linespread{1}\footnotesize
+    \interlinepenalty\interfootnotelinepenalty
+    \splittopskip\footnotesep
+    \splitmaxdepth \dp\strutbox \floatingpenalty \@MM
+    \hsize\columnwidth \@parboxrestore
+   \edef\@currentlabel{\csname p@footnote\endcsname\@thefnmark}%
+   \@makefntext{\rule{\z@}{\footnotesep}\ignorespaces#1\strut}}}
+ \DeclareMathSymbol{\virgola}{\mathpunct}{letters}{"3B}
+ \DeclareMathSymbol{\virgoladecimale}{\mathord}{letters}{"3B}
+ \AtBeginDocument{\mathcode`\,=\string"8000}
+ {\catcode `,=\active \gdef,{\futurelet\let@token\m@thcomma}}
+\def\m@thcomma{\let\@tempB\virgola
+\@tfor\@tempA:=0123456789\do{%
+\expandafter\ifx\@tempA\let@token\let\@tempB\virgoladecimale
+\@break@tfor\fi}\@tempB}
+\catcode`\^^Z=10
+\topmargin 0pt
+\let\summaryname\empty
+\let\acknowledgename\empty
+\newcommand*\ExtendCaptions[3]{{%
+\@ifundefined{captions#1}{%
+\PackageWarning{toptesi}{Language option #1 not specified\MessageBreak
+Skipping any redefinition\MessageBreak}%
+}{%
+\expandafter\let\expandafter\@tempA\csname captions#1\endcsname
+ \toks0=\expandafter{\@tempA%
+    \def\summaryname{#2}%
+    \def\acknowledgename{#3}}%
+ \expandafter\xdef\csname captions#1\endcsname{\the\toks0}%
+ }}}%
+\ExtendCaptions{italian}{Sommario}{Ringraziamenti}
+\ExtendCaptions{english}{Summary}{Acknowledgements}
+\def\italiano{\selectlanguage{italian}}%
+\def\english{\selectlanguage{english}}%
+\let\inglese\english
+\AtBeginDocument{%
+    \italiano
+    \renewcommand\@chapapp{\chaptername}%
+}
+\ifxetex
+\AtBeginDocument{%
+\RequirePackage{topfront}%
+\RequirePackage{topcoman}%
+}\else
+\RequirePackage{topfront}%
+\RequirePackage{topcoman}%
+\fi
+\ifxetex\else
+\renewcommand*\not{\mathrel{\mathchoice%
+{\rlap{$\displaystyle\mkern2.5mu\mathnormal{/}$}}%
+{\rlap{$\textstyle\mkern2.5mu\mathnormal{/}$}}%
+{\rlap{$\scriptstyle\mkern2.5mu\mathnormal{/}$}}%
+{\rlap{$\scriptscriptstyle\mkern2.5mu\mathnormal{/}$}}%
+}}
+\renewcommand\mapstochar{\mathrel{\mathchoice
+{\displaystyle\unitlength=0.0555\fontdimen6\font
+   \picture(0,0)\put(1,1.5){\linethickness{0.72\unitlength}%
+   \line(0,1){6}}\endpicture}
+{\textstyle\unitlength=0.0555\fontdimen6\font
+   \picture(0,0)\put(1,1.5){\linethickness{0.72\unitlength}%
+   \line(0,1){6}}\endpicture}
+{\scriptstyle\unitlength=0.0555\fontdimen6\font
+   \picture(0,0)\put(1,0.55){\linethickness{0.61\unitlength}%
+   \line(0,1){5}}\endpicture}
+{\scriptscriptstyle\unitlength=0.0555\fontdimen6\font
+   \picture(0,0)\put(1,0.2){\linethickness{0.56\unitlength}%
+   \line(0,1){4}}\endpicture}
+}}\fi
+\ifT@Ppdfa
+  \unless\ifxetex
+     \RequirePackage[a-1b]{pdfx}
+  \else
+     \RequirePackage{hyperref}
+  \fi
+\fi
+\ifclassica
+\def\Candidato{Laureando}
+\def\Candidata{Laureanda}
+\def\Candidati{Laureandi}
+\def\Candidate{Laureande}
+\fi
+\newcounter{tomo}
+\newcommand*{\tomo}{\clearpage\stepcounter{tomo}\frontespizio}
+\renewcommand*{\lapagina}{%
+    \ifnumeriromani
+        \thepage
+    \else
+        \if@ldstyle
+            \expandafter\oldstylenums\expandafter{\thepage}%
+        \else
+            \thepage
+        \fi
+    \fi
+    }
+\if@utoretitolo
+   \if@twoside
+       \renewcommand*{\ps@headings}{\let\@mkboth\markboth%
+       \def\@oddfoot{\null \hfill \textbf{\lapagina} \hfill \null}%
+       \let\@evenfoot\@oddfoot
+       \def\@evenhead{%
+           \setbox\@intesta\hbox{\unless\ifxetex\latintext\fi
+           \footnotesize\strut\textsc{%
+           \@author\ifx\@secondauthor\empty\else\ et al.\fi: \@stitle}%
+           }%
+       \ifdim\wd\@intesta>\textwidth\headwrn{\titolo}\fi
+       \underline{\makebox[\textwidth]{\box\@intesta}}}%
+       \def\@oddhead{\unless\ifxetex\latintext\fi
+           \setbox\@intesta\hbox{%
+               \footnotesize\strut\textsl{\rightmark}}%
+       \ifdim\wd\@intesta>\textwidth \headWarn{\section}\fi%
+       \underline{\makebox[\textwidth]{\box\@intesta}}}%
+       \def\chaptermark##1{\markright{\thechapter\ -- ##1}{}}%
+       \def\sectionmark##1{}}%
+   \else
+       \renewcommand*{\ps@headings}{\let\@mkboth\markboth
+           \def\@oddfoot{\null \hfill \textbf{\lapagina}\hfill \null}%
+           \let\@evenfoot\empty\let\@evenhead\empty
+           \def\@oddhead{{\setbox\z@\hbox{\unless\ifxetex\latintext\fi\footnotesize
+           \textsc{%
+           \@author\ifx\@secondauthor\empty\else\ et al.\fi: \@stitle}}%
+           \setbox\tw@\hbox{\unless\ifxetex\latintext\fi\footnotesize\textsl{\rightmark}}%
+           \dimen@=2em\advance\dimen@\wd\z@\advance\dimen@\wd\tw@
+           \ifdim\dimen@<\textwidth \relax
+           \else
+             \setbox\z@\vbox{\hsize.48\textwidth\parindent\z@\raggedright
+             \unless\ifxetex\latintext\fi\footnotesize\textsc{%
+             \@author\ifx\@secondauthor\empty\else\ et al.\fi: \@stitle
+             }}%
+             \setbox\tw@\vbox{\hsize.48\textwidth\parindent\z@\raggedleft
+                 \unless\ifxetex\latintext\fi\footnotesize\textsl{\rightmark}}%
+           \fi
+           \setbox\@intesta\vbox to\z@{%
+                \vss\hbox to\textwidth{\strut\box\z@\hfill\box\tw@}}%
+           \underline{\box\@intesta}}}%
+           \def\chaptermark##1{\markright{\thechapter\ -- ##1}}}
+   \fi
+\fi
+\newcommand*\NomeAnnoAccademico[1]{\gdef\AnnoAccademico{#1}}
+\@ifundefined{AnnoAccademico}{\gdef\AnnoAccademico{Anno accademico}}{}
+\def\annoaccademico#1{\ifclassica
+  \def\@submitdate{{\large\textsc{\AnnoAccademico}} {\Large\s@tanno#1!}}
+  \else
+  \PackageWarning{toptesi}{\string\annoaccademico\space is usable only
+   when the\MessageBreak
+   `classica' option is in force}%
+  \def\@submitdate{\AnnoAccademico\ #1 --- Needs `classica' option}
+  \fi}
+\def\s@tanno#1-#2!{\oldstylenums{#1\EnDash#2}}
+
+\def\EnDash{{\settowidth{\dimen@}{\large\sc I}%
+\setbox\tw@\hbox{2}\dimen\tw@.5\ht\tw@\advance\dimen\tw@-.5\dp\tw@
+\dimen4\dimen\tw@\advance\dimen4by.0385ex\relax
+\advance\dimen\tw@-.0385ex\relax
+\makebox[1.5\dimen@]{%
+    \vrule\@width\dimen@\@height\dimen4\@depth-\dimen\tw@}}}
+\renewcommand\footnoterule{%
+  \kern-6\p@
+  \hrule\@width.4\columnwidth
+  \kern5.6\p@}
+\setlength\footnotesep{12\p@}
+\setlength{\skip\footins}{24\p@ \@plus 4\p@ \@minus 2\p@}
+\newcommand*\nota[1][\mathord{*}]{%
+    \xdef\@thefnmark{\ensuremath{\m@th#1}}\@footnotemark\@footnotetext
+}
+\newcommand*{\NoteWhiteLine}{\par\vspace*{-.3\baselineskip}}
+\newcommand*\paginavuota{\clearpage\thispagestyle{empty}\null\clearpage}
+\newenvironment{dedica}{\clearpage
+    \if@twoside
+        \ifodd\c@page\else\thispagestyle{empty}\null\clearpage\fi
+    \fi
+    \thispagestyle{empty}%
+    \list{}{\labelwidth\z@
+    \leftmargin.5\textwidth
+    \parindent\z@
+    \raggedright\LARGE\itshape}\item[]
+}{%
+    \endlist\clearpage
+}
+\newenvironment{citazioni}{%
+    \clearpage\thispagestyle{empty}
+    \list{}{\labelwidth\z@
+    \leftmargin.5\textwidth
+    \parindent\z@
+    \raggedright}\item[]
+}{%
+    \endlist\clearpage
+}
+%% 
+%% Copyright 2005-2013 Claudio Beccari
+%% 
+%% Distributable under the LaTeX Project Public License,
+%% version 1.3c or higher (your choice). The latest version of
+%% this license is at: http://www.latex-project.org/lppl.txt
+%% 
+%% This work is "author-maintained"
+%% 
+%% This work consists of this file toptesi.dtx, a README file
+%% and the derived files:
+%% 
+%% toptesi.cls, toptesi.sty, topfront.sty, topcommand.sty,
+%% toptesi.cfg, and the English documentation toptesi.pdf.
+%% 
+%% Furthermore the bundle contains the documentation source
+%% file toptesi-doc-xetex.tex and the derived file
+%% toptesi-doc-xetex.pdf.
+%% 
+%% The toptesi-example.tex source file is just an example
+%% that shows how to use the various commands; by commenting
+%% or uncommenting certain source lines it is possible to
+%% typeset different kind of theses and their frontpages.
+%% 
+%% The toptesi.cfg file is a sample of a local configuration
+%% file that can be freely edited and modified.
+%% 
+%% By running pdflatex on toptesi.dtx the user gets the class,
+%% sty and cfg files and the English documentation file in
+%%  pdf format.
+%% 
+%% The documentation file toptesi-doc-xetex.pdf is in Italian;
+%% its source file is another example of how to use toptesi.
+%%
+%% End of file `toptesi.sty'.

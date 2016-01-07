@@ -1,0 +1,456 @@
+%%
+%% This is file `topfront.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% toptesi.dtx  (with options: `topfrn')
+%%   ______________________________________________________
+%%   The TOPtesi package
+%%   Copyright (C) 2013 Claudio Beccari
+%%   All rights reserved
+%% 
+%%   License information appended
+%% 
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{topfront}[2013/09/01 v.5.73 Title page for TOPtesi]
+\@ifpackageloaded{etoolbox}{}{\RequirePackage{etoolbox}}
+\ifcsundef{ifclassica}{%
+    \newif\ifclassica
+    \classicafalse
+}{}
+\newif\iffemminile
+\newif\ifdottorato \dottoratofalse
+\newif\iflaureatriennale \laureatriennalefalse
+\def\monografia#1{\global\laureatriennaletrue
+      \global\dottoratofalse
+      \global\def\titolo##1{\PackageWarning{toptesi}%
+      {Il titolo e' gia' stato impostato con
+            il comando \string\monografia}}%
+      \gdef\@title{#1}}
+\let\@stitle\empty
+\newcommand*{\titolo}[2][]{{\def\@tempA{#1}%
+    \ifx\@tempA\empty\gdef\@stitle{#2}\else\gdef\@stitle{#1}\fi
+    \gdef\@title{#2}}}
+\def\sottotitolo#1{\gdef\@subtitle{#1}}
+\let\@materia\empty
+\def\Materia#1{\def\@materia{#1}}\let\materia\Materia
+\newif\ifDirettore \Direttorefalse
+\def\tutore#1{\gdef\@tutore{#1}}
+\def\direttore{\Direttoretrue\relatore}%
+\def\coordinatore{\Direttorefalse\relatore}%
+\def\QualificaDirettore#1{\gdef{#1}}
+\def\relatore#1{\gdef\@principaladviser{#1}}
+\def\secondorelatore#1{\gdef\@secondadviser{#1}}
+\def\terzorelatore#1{\gdef\@thirdadviser{#1}}
+\def\candidato#1{\gdef\@author{#1}\femminilefalse}
+\def\candidata#1{\gdef\@author{#1}\femminiletrue}
+\def\secondocandidato#1{\gdef\@secondauthor{#1}\femminilefalse}
+\def\secondacandidata#1{\gdef\@secondauthor{#1}}
+\def\terzocandidato#1{\gdef\@thirdauthor{#1}\femminilefalse}
+\def\terzacandidata#1{\gdef\@thirdauthor{#1}}
+\def\sedutadilaurea#1{\getseduta#1 !}
+\def\getseduta#1 #2!{%
+    \def\@tempA{#2}%
+    \ifx\@tempA\empty
+        \def\@submitdate{#1}%
+    \else
+        \unless\ifclassica
+            \def\@submitdate{#1 #2}%
+        \else
+            \s@dutaTrieste#1 #2!%
+        \fi
+    \fi
+}%
+\def\s@dutaTrieste#1 #2!{%
+    \if@ldstyle
+        \s@paranumeri#2-!%
+        \ifx\2\empty
+            \edef\@submitdate{\noexpand#1 \noexpand\oldstylenums{#2}}%
+        \else
+            \s@paranumeri#2!%
+            \edef\@submitdate{\noexpand#1
+            \noexpand\oldstylenums{\1} -- \noexpand\oldstylenums{\2}}%
+        \fi
+        \let\1\undefined
+        \let\2\undefined
+    \else
+        \def\@submitdate{#1 #2}%
+    \fi
+}
+\def\s@paranumeri#1-#2!{\def\1{#1}\def\2{#2}}%
+\let\esamedidottorato\sedutadilaurea
+\def\ciclodidottorato#1{\gdef\@ciclo{#1 \@cyclename}}%
+\def\corsodilaurea#1{\global\dottoratofalse\gdef\@corso{#1}}
+\def\corsodidottorato#1{\global\dottoratotrue\global\laureatriennalefalse
+    \gdef\@corso{#1}}
+\def\scuoladidottorato#1{\global\dottoratotrue\global\laureatriennalefalse
+    \gdef\@phdschool{#1}}
+\def\ateneo#1{\gdef\@ateneo{\expandafter\uppercase{\expandafter #1}}}
+\def\nomeateneo#1{\gdef\@nomeat{\expandafter\uppercase{\expandafter #1}}}
+\newcommand\facolta[2][]{\gdef\@facname{#2}\gdef\@facnumber{#1}}
+\let\struttura\facolta
+
+\newlength{\TPT@logospace}\TPT@logospace=3em\relax
+\newsavebox{\TPT@logobox}
+\newdimen\TPT@logoheight
+\newcommand*\setlogodistance[1]{\TPT@logospace=#1}
+\providecommand*{\@logosede}{}
+
+\ifcsundef{interno}{%\
+    \newlength\interno
+    \setlength\interno{\dimexpr\paperwidth/7}}{}
+\newcommand\logosede[2][\interno]{\def\@logosede{#2}\TPT@logoheight=#1}
+
+\newcommand\printloghi{\ifdefvoid{\@logosede}{}{%
+\begin{lrbox}{\TPT@logobox}\hskip\TPT@logospace
+   \expandafter\@printloghi\@logosede,!}}
+
+\def\@printloghi#1,#2!{%
+\ifblank{#1}{\hskip\TPT@logospace\end{lrbox}\vspace*{\bigskipamount}%
+\leavevmode
+\ifdim\wd\TPT@logobox<\textwidth \box\TPT@logobox
+\else\resizebox{\textwidth}{!}{\box\TPT@logobox}%
+\fi}{\def\@logosede{#2}%
+\includegraphics[height=\TPT@logoheight]{#1}\hskip\TPT@logospace
+   \expandafter\@printloghi\@logosede,!}}
+
+\def\tutoreaziendale#1{\gdef\@tutoreaziendale{#1}}
+\newcommand\retrofrontespizio[1]{\long\gdef\@retrofrontespizio{#1}}
+\newcommand\FacoltaDi[1]{\gdef\@faculty{#1}}
+\let\StrutturaDidattica\FacoltaDi
+\newcommand\DottoratoIn[1]{\gdef\@PhDname{#1}}
+\newcommand\CorsoDiLaureaIn[1]{\gdef\@laureaname{#1}}
+\newcommand\TesiDiLaurea[1]{\gdef\@TesiDiLaurea{#1}}
+\newcommand\NomeMonografia[1]{\gdef\@monografia{#1}}
+\newcommand\NomeDissertazione[1]{\gdef\@dissertazione{#1}}
+\newcommand\InName[1]{\gdef\@InName{#1}}
+\newcommand\CandidateName[1]{\gdef\@nomecandidato{#1}}
+\newcommand\AdvisorName[1]{\gdef\Relatore{#1}\gdef\Relatori{#1}}
+\newcommand\CoAdvisorName[1]{\gdef\Correlatore{#1}\gdef\Correlatori{#1}}
+\newcommand\TutorName[1]{\gdef\Tutore{#1}}
+\newcommand\NomeTutoreAziendale[1]{\gdef\@tutoreaziendalename{#1}}
+\newcommand\CycleName[1]{\gdef\@cyclename{#1}}
+\newcommand\NomePrimoTomo[1]{\gdef\PrimoTomo{#1}}
+\newcommand\NomeSecondoTomo[1]{\gdef\SecondoTomo{#1}}
+\newcommand\NomeTerzoTomo[1]{\gdef\TerzoTomo{#1}}
+\newcommand\NomeQuartoTomo[1]{\gdef\QuartoTomo{#1}}
+\IfFileExists{\jobname.cfg}{\input{\jobname.cfg}}%
+    {\IfFileExists{toptesi.cfg}{\input{toptesi.cfg}}{}}
+\@ifundefined{@cyclename}{\def\@cyclename{ciclo}}{}
+\@ifundefined{@title}{\def\@title{}}{}
+\@ifundefined{@author}{\def\@author{}}{}
+\@ifundefined{@principaladviser}{\def\@principaladviser{}}{}
+\@ifundefined{@secondadviser}{\def\@secondadviser{}}{}
+\@ifundefined{@thirdadviser}{\def\@thirdadviser{}}{}
+\ifcsundef{@PhDdirector}{%
+   \ifDirettore\def\@PhDdirector{Direttore del corso di dottorato}\else
+    \def\@PhDdirector{Coordinatore del corso di dottorato}\fi}{}
+\@ifundefined{@tutore}{\def\@tutore{}}{}
+\@ifundefined{@secondauthor}{\def\@secondauthor{}}{}
+\@ifundefined{@thirdauthor}{\def\@thirdauthor{}}{}
+\@ifundefined{@nomerelatore}{\def\@nomerelatore{}}{}
+\@ifundefined{@nomecandidato}{\def\@nomecandidato{}}{}
+\@ifundefined{Candidato}{\def\Candidato{Candidato}}{}
+\@ifundefined{Candidata}{\def\Candidata{Candidata}}{}
+\@ifundefined{Candidati}{\def\Candidati{Candidati}}{}
+\@ifundefined{Candidate}{\def\Candidate{Candidate}}{}
+\@ifundefined{Relatore}{\def\Relatore{Relatore}}{}
+\@ifundefined{Relatori}{\def\Relatori{Relatori}}{}
+\@ifundefined{Correlatore}{\def\Correlatore{Correlatore}}{}
+\@ifundefined{Correlatori}{\def\Correlatori{Correlatori}}{}
+\@ifundefined{Tutore}{\def\Tutore{Tutore}}{}
+\@ifundefined{@tutoreaziendale}{\def\@tutoreaziendale{}}{}
+\@ifundefined{@tutoreaziendalename}%
+        {\def\@tutoreaziendalename{Supervisore Aziendale}}{}
+\@ifundefined{@retrofrontespizio}{\def\@retrofrontespizio{}}{}
+\@ifundefined{@subtitle}{\def\@subtitle{}}{}
+\@ifundefined{@corso}{\def\@corso{}}{}
+\@ifundefined{@ciclo}{\def\@ciclo{}}{}
+\@ifundefined{@ateneo}{\def\@ateneo{POLITECNICO DI TORINO}}{}
+\@ifundefined{@nomeat}{\def\@nomeat{}}{}% Nome proprio dell'ateneo
+\@ifundefined{@facolta}{\def\@facname{}}{}
+\@ifundefined{@facnumber}{\def\@facnumber{}}{}
+\@ifundefined{@faculty}{\def\@faculty{}}{}
+\@ifundefined{PrimoTomo}{\def\PrimoTomo{Tomo primo}}{}
+\@ifundefined{SecondoTomo}{\def\SecondoTomo{Tomo secondo}}{}
+\@ifundefined{TerzoTomo}{\def\TerzoTomo{Tomo terzo}}{}
+\@ifundefined{QuartoTomo}{\def\QuartoTomo{Tomo quarto}}{}
+\@ifundefined{@submitdate}{\def\@submitdate{\ifcase\the\month\or%
+  Gennaio\or Febbraio\or Marzo\or Aprile\or Maggio\or Giugno\or
+  Luglio\or Agosto\or Settembre\or Ottobre\or Novembre\or Dicembre\fi
+  \space \the\year}}{}
+\@ifundefined{@TesiDiLaurea}{\def\@TesiDiLaurea{Tesi di Laurea}}{}
+\@ifundefined{@phdschool}{\def\@phdschool{SCUOLA DI DOTTORATO}}{}
+\@ifundefined{@PhDname}{\def\@PhDname{Dottorato in }}{}
+\@ifundefined{@laureaname}{\def\@laureaname{Corso di Laurea in }}{}
+\@ifundefined{@dissertazione}{\def\@dissertazione{Tesi di Dottorato}}{}
+\@ifundefined{@monografia}{\def\@monografia{Monografia di Laurea}}{}
+\@ifundefined{@InName}{\def\@InName{in}}{}
+\gdef\frontespizio{%
+\begingroup
+      \def\ps@myheadings{\let\@mkboth\markboth
+      \def\@oddhead{\vbox{%
+      \hbox to \hsize{\hfill {\LARGE \@ateneo}\hfill}%
+      \ifclassica
+            \hbox to \hsize{\hfil\vrule\@width\z@
+        \@height2ex\vrule\@height1.4\p@\@depth-\p@\@width50mm\hfil}%
+      \fi
+      }}%
+      \def\@oddfoot{\vbox to \dimexpr\paperheight/20\relax{\vss
+     \ifclassica
+        \hbox to \hsize{\hfil\raisebox{-.3ex}[\z@][\z@]{%
+        \vrule\@height-2.6\p@\@depth3\p@\@width\dimexpr\textwidth/3}\hfil}%
+      \fi
+      \hbox to\hsize{\hfill{\Large{\@submitdate}}\hfill}}%
+      }%
+      \let\@evenhead\@oddhead
+      \let\@evenfoot\@oddfoot
+      }%
+      \advance\oddsidemargin \evensidemargin
+      \divide\oddsidemargin \tw@
+      \evensidemargin \oddsidemargin
+      \thispagestyle{myheadings}%
+      \null\setcounter{page}{1}%
+      \normalfont
+      \ifx\@nomeat\empty \else
+            {\vspace*{-1.5\baselineskip}\centering
+                {\Large \@nomeat}\par}\vfill
+      \fi
+      \begin{center}
+      {\rmfamily\mdseries
+      \ifdottorato
+            \large \@phdschool\par\medskip
+      \else
+            \unless\ifx\@faculty\empty
+             \LARGE\ifx\@facnumber\empty\else\@facnumber\space\fi
+             \@faculty\@facname\par\medskip
+            \fi%
+      \fi
+      }%
+      \ifx\@corso\empty \else{\large
+            \ifdottorato
+                  \@PhDname\@corso\ifx\@ciclo\empty\else~--~\@ciclo\fi
+            \else
+                  \@laureaname\@corso
+            \fi
+            \par}
+      \fi
+      \end{center}
+      \vfill
+      \begin{center}
+        \LARGE
+        \ifdottorato
+            \@dissertazione%
+        \else
+            \iflaureatriennale
+                  \@monografia%
+            \else
+                  \@TesiDiLaurea%
+            \fi
+        \fi
+        \ifx\empty\@materia\else
+            \\\@InName\\\@materia
+        \fi
+      \end{center}
+      \vfill
+      \begin{center}
+        {\huge\bfseries \baselineskip=0.95em plus 1pt
+                \@title \par}
+      \end{center}
+      \ifx\@subtitle\empty \else
+            \begin{center}%
+              \large\textrm{\@subtitle}\par
+            \end{center}%
+      \fi
+      \ifclassica
+            \ifnum\value{tomo}>\z@
+                  \par\bigskip
+                  \noindent\makebox[\textwidth]{%
+                  \large\textbf{%
+                  \ifcase\c@tomo%
+                        \or \PrimoTomo%
+                        \or \SecondoTomo%
+                        \or \TerzoTomo%
+                        \or \QuartoTomo%
+                        \else
+                            \PackageWarning{toptesi}{%
+                            Counter tomo equals \the\c@tomo\MessageBreak
+                            It was not considered a thesis might get
+                            divided in more than four volumes}%
+                        \fi}}%
+            \fi
+      \fi
+      \par
+      {\centering \printloghi\par}
+      \vfill
+      \iflaureatriennale
+            \let\@nomerelatore\empty
+      \else
+            \ifdottorato
+                  \edef\@nomerelatore{\@PhDdirector}%
+            \else
+                  \ifx\@principaladviser\empty\else
+                        \def\@nomerelatore{\Relatore:}%
+                  \fi
+                  \unless\ifclassica
+                        \ifx\@secondadviser\empty \else
+                              \def\@nomerelatore{\Relatori:}%
+                        \fi
+                  \fi
+            \fi
+      \fi
+      \ifdottorato
+            \let\@nomecandidato\empty
+      \else
+    \iflanguage{italian}{%
+            \iffemminile
+                  \def\@nomecandidato{\Candidata:}%
+            \else
+                  \def\@nomecandidato{\Candidato:}%
+            \fi
+            \ifx\@secondauthor\empty \else
+                  \iffemminile
+                        \def\@nomecandidato{\Candidate:}%
+                  \else
+                        \def\@nomecandidato{\Candidati:}%
+                  \fi
+            \fi}{}
+      \fi
+      \iflaureatriennale
+            \begin{center}%
+                  \large\mdseries\textsc{\@author}
+            \end{center}%
+      \else
+         \def\BoxRelatori{%
+            \begin{tabular}[t]{l}%
+            \hbox{\ifclassica\else\large\fi
+                  \textbf{\protect\@nomerelatore}}\\[.6ex]
+            \hbox{\large\textrm{\protect\@principaladviser}}%
+            \ifx\@secondadviser\empty \else
+               \ifclassica
+                  \ifx\@thirdadviser\empty
+                     \ifx\@secondadviser\empty\else
+                           \\[1.5ex]\textbf{\Correlatore:}%
+                     \fi
+                  \else
+                     \\[1.5ex]\textbf{\Correlatori:}%
+                  \fi
+               \fi
+               \\[.6ex]\hbox{{\large\textrm{\protect\@secondadviser}}}%
+            \fi
+            \ifx\@thirdadviser\empty \else
+               \\[.6ex] \hbox{{\large\textrm{\protect\@thirdadviser}}}%
+            \fi
+            \end{tabular}%
+         }%
+      \def\BoxCandidati{%
+         \begin{tabular}[t]{l}%
+            \hbox{\unless\ifclassica\large\fi
+               \textbf{\protect\@nomecandidato}}\\[.6ex]
+               \hbox{\large\textrm{\protect\@author}}%
+               \ifx\@secondauthor\empty
+               \else
+                  \\\hbox{\large\textrm{\protect\@secondauthor}}%
+               \fi
+               \ifx\@thirdauthor\empty
+               \else
+                  \\\hbox{\large\textrm{\protect\@thirdauthor}}%
+               \fi
+         \end{tabular}%
+      }%
+         \ifdottorato
+            \begin{center}\large
+               \textbf{\@author}\\[3em]
+               {\normalsize
+               \begin {tabular*}{\hsize}{@{\extracolsep{\fill}}ccc}
+               \ifx\@tutore\empty\else
+                   \textbf{\Tutore}
+               \fi
+               &\relax&
+               \ifx\@principaladviser\empty\else
+                     \textbf{\@nomerelatore}
+               \fi
+               \\
+               \ifx\@tutore\empty\else
+                     \@tutore
+               \fi
+               &\relax&
+               \ifx\@principaladviser\empty\else
+                     \@principaladviser
+               \fi
+               \end{tabular*}
+               }%
+            \end{center}
+         \else
+             \unless\ifclassica
+               \begin{flushleft}%
+                     \BoxRelatori
+               \end{flushleft}\par\vspace*{-1.5\baselineskip}
+               \begin{flushright}%
+                     \BoxCandidati
+               \end{flushright}\else
+               \noindent
+               \makebox[\textwidth]{\BoxRelatori\hfill\BoxCandidati}\par
+             \fi
+          \fi
+      \fi
+\ifx\@tutoreaziendale\@empty\else
+    \vfill\vfill
+    {\centering \textbf{\@tutoreaziendalename}\\[.6ex]
+    \@tutoreaziendale\par}
+\fi
+      \par\clearpage
+      \ifdefempty{\@retrofrontespizio}{}%
+      {\null\vfill\pagestyle{empty}\@retrofrontespizio\par\clearpage}%
+\endgroup}
+%% 
+%% Copyright 2005-2013 Claudio Beccari
+%% 
+%% Distributable under the LaTeX Project Public License,
+%% version 1.3c or higher (your choice). The latest version of
+%% this license is at: http://www.latex-project.org/lppl.txt
+%% 
+%% This work is "author-maintained"
+%% 
+%% This work consists of this file toptesi.dtx, a README file
+%% and the derived files:
+%% 
+%% toptesi.cls, toptesi.sty, topfront.sty, topcommand.sty,
+%% toptesi.cfg, and the English documentation toptesi.pdf.
+%% 
+%% Furthermore the bundle contains the documentation source
+%% file toptesi-doc-xetex.tex and the derived file
+%% toptesi-doc-xetex.pdf.
+%% 
+%% The toptesi-example.tex source file is just an example
+%% that shows how to use the various commands; by commenting
+%% or uncommenting certain source lines it is possible to
+%% typeset different kind of theses and their frontpages.
+%% 
+%% The toptesi.cfg file is a sample of a local configuration
+%% file that can be freely edited and modified.
+%% 
+%% By running pdflatex on toptesi.dtx the user gets the class,
+%% sty and cfg files and the English documentation file in
+%%  pdf format.
+%% 
+%% The documentation file toptesi-doc-xetex.pdf is in Italian;
+%% its source file is another example of how to use toptesi.
+%%
+%% End of file `topfront.sty'.
