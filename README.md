@@ -117,7 +117,7 @@ Siete liberissimi di cambiare lo stile del testo: potete allinearlo a sinistra o
 
 ### Ringraziamenti
 
-Anche questa sezione è opzionale. Vi cosiglio di evitare di superare la pagina, se possibile. Qualunque cosa succeda non superate le due pagine, ma siate consapevoli che una doppia pagina di ringraziamenti ha una probabilità del 50% di creare problemi in stampa, soprattutto se il vostro tipografo di fiducia è un cretino.
+Anche questa sezione è opzionale. Vi consiglio di evitare di superare la pagina, se possibile. Qualunque cosa succeda non superate le due pagine, ma siate consapevoli che una doppia pagina di ringraziamenti ha una probabilità del 50% di creare problemi in stampa, soprattutto se il vostro tipografo di fiducia è un cretino.
 
 ### Sommario o Abstract
 
