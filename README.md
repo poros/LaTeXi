@@ -136,7 +136,7 @@ Se un indice non vi serve (mai mettere un indice delle tabelle, se non avete tab
 
 Se volete aggiungere un indice, seguite l'esempio di quello per i listati poco sotto l'elenco delle dipendenze. I commenti vi indicheranno la sezione adatta. (Avviso: aggiungere un indice è un'operazione complessa. Vi sconsiglio di farlo, se siete alle prime armi.)
 
-Poco sopra vi è anche la possibilità di modificare lo stile dei dei collegamenti ipertestuali (in pratica i colori) e la sintassi default, insieme ai colori per le parole chiave, da usare per i listati.
+Poco sopra vi è anche la possibilità di modificare lo stile dei collegamenti ipertestuali (in pratica i colori) e la sintassi default, insieme ai colori per le parole chiave, da usare per i listati.
 
 ### Lista capitoli (sì, di nuovo)
 
