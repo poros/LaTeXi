@@ -21,6 +21,7 @@ LaTeXi nasce dal template che Antonio Uccio Verardi (aka @poros) ha incominciato
     1. [Prima compilazione](https://github.com/poros/LaTeXi#prima-compilazione)
     2. [Compilazioni successive](https://github.com/poros/LaTeXi#compilazioni-successive)
 4. [Struttura della cartella](https://github.com/poros/LaTeXi#struttura-della-cartella)
+    1. [Supporto per Overleaf](https://github.com/poros/LaTeXi#supporto-per-overleaf)
 5. [Componenti da personalizzare](https://github.com/poros/LaTeXi#componenti-da-personalizzare)
     1. [Informazioni PDF](https://github.com/poros/LaTeXi#informazioni-pdf)
     2. [Frontespizio](https://github.com/poros/LaTeXi#frontespizio)
@@ -45,6 +46,8 @@ Le dipendenze di LaTeXi sono innumerevoli, ma non tutte sono attivamente utilizz
 La totalità dei pacchetti dovrebbe essere installabile facilmente tramite qualsiasi gestore di pacchetti LaTeX. L'approccio compila-errore-pacchetto-assente-installa è comunque il modo migliore di procedere se volete installare i pacchetti manualmente.
 
 La dipendenza più problematica da installare potrebbe risultare TopTesi. DOVETE installare TopTesi, LaTeXi è costruito intorno a questo pacchetto. Se il vostro gestore pacchetti è nei guai, seguite le istruzioni riportate nella documentazione ufficiale del pacchetto [TopTesi](http://mirrors.ctan.org/macros/latex/contrib/toptesi/toptesi.pdf).
+
+Se state usando Overleaf, invece, l'installazione di TopTesi è sostituita dalla cartella __tex__ e dal file __latexmkrc__.
 
 ## Compilazione
 __Compilare sempre il documento principale, mai i capitoli.__
@@ -81,9 +84,13 @@ Ogni altra modifica:
 
 ## Struttura della cartella
 
-Tutti i file principali risiedono nella cartella LaTeXi. Siete liberi di __cambiare__ il nome della cartella a vostro piacimento. La sotto-cartella __images__ è stata pensata per ospitare le __immagini__, mentre la cartella __code__ è pensata per mantenere il vostro __codice__ (sì, era ovvio, ma l'ho scritto lo stesso in grassetto, non si sa mai). Ricordatevi che il nome della __sotto-cartella__ figurerà nel __percorso__ da specificare ogni volta che vorrete includere immagini o codice, come mostrato negli esempi (images/cat_photo.png). 
+Tutti i file principali risiedono nella cartella LaTeXi. Siete liberi di __cambiare__ il nome della cartella a vostro piacimento. La sotto-cartella __images__ è stata pensata per ospitare le __immagini__, mentre la cartella __code__ è pensata per mantenere il vostro __codice__ (sì, era ovvio, ma l'ho scritto lo stesso in grassetto, non si sa mai). Ricordatevi che il nome della __sotto-cartella__ figurerà nel __percorso__ da specificare ogni volta che vorrete includere immagini o codice, come mostrato negli esempi (images/cat_photo.png).
 
 Siete liberi di aggiungere, eliminare o modificare le sotto-cartelle, ma, vi prego, __ricordatevi__ di cambiare anche i percorsi all'interno della tesi. Vi prego (sappiamo tutti come andrà a finire...).
+
+### Supporto per Overleaf
+
+Overleaf è supportato tramite la cartella __tex__ ed il file __latexmkrc__: la loro presenza dovrebbe sopperire all'installazione di TopTesi.
 
 ## Componenti da personalizzare
 
