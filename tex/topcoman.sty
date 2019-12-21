@@ -1,0 +1,151 @@
+%%
+%% This is file `topcoman.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% toptesi.dtx  (with options: `topcmn')
+%%   ______________________________________________________
+%%   The TOPtesi bundle
+%%   Copyright (C) 2015-2018 Claudio Beccari
+%%   All rights reserved
+%% 
+%%   License information appended
+%% 
+\NeedsTeXFormat{LaTeX2e}[2016/01/01]
+\ProvidesPackage{topcoman}[%
+2018/05/06 v.~6.2.04
+Additional commands for the TOPtesi bundle]
+
+
+\RequirePackage{iftex}
+\ifPDFTeX
+\newcommand*\DeclareSlantedCapitalGreekLetters{%
+   \mathchardef\Gamma="7100
+   \mathchardef\Delta="7101
+   \mathchardef\Theta="7102
+   \mathchardef\Lambda="7103
+   \mathchardef\Xi="7104
+   \mathchardef\Pi="7105
+   \mathchardef\Sigma="7106
+   \mathchardef\Upsilon="7107
+   \mathchardef\Phi="7108
+   \mathchardef\Psi="7109
+   \mathchardef\Omega="710A
+}\else
+\newcommand*\DeclareSlantedCapitalGreekLetters{%
+\PackageWarning{toptesi}{%
+   When using LuaLaTeX or XeLaTeX specify\MessageBreak
+   option math-style=ISO to package unicode-math\MessageBreak}
+}
+\fi
+\providecommand*\ensuremath[1]{\ifmmode#1\else$#1$\fi}%
+\providecommand*\textormath{}
+\renewcommand*\textormath{\ifmmode\expandafter\@secondoftwo\else
+    \expandafter\@firstoftwo\fi}
+\providecommand*\textsubscript{\raisebox{-0.5ex}}
+
+\ifPDFTeX
+\@ifpackageloaded{textcomp}{}{\RequirePackage{textcomp}}
+\fi
+\providecommand{\ohm}{\textormath{\textohm}{\mathrm{\Omega}}}
+\@ifpackageloaded{toptesi}{%
+\providecommand\ped{}\providecommand\ap{}
+\renewcommand*{\ped}[1]{\textormath{\textsubscript{#1}}{_{\mathrm{#1}}}}
+\renewcommand*{\ap}[1]{\textormath{\textsuperscript{#1}}{^{\mathrm{#1}}}}}{%
+\providecommand*{\ped}[1]{\textormath{\textsubscript{#1}}{_{\mathrm{#1}}}}%
+\providecommand*{\ap}[1]{\textormath{\textsuperscript{#1}}{^{\mathrm{#1}}}}}
+\@ifpackageloaded{siunitx}{\def\unit#1{\si{\,#1}}}{%
+\providecommand\unit{}%
+\renewcommand\unit[1]{\ensuremath{{\mathrm{\,#1}}}}
+}
+\providecommand{\gei}{\ensuremath{{\mathop{\mathrm{j}}\nolimits}}}
+\providecommand{\eu}{\ensuremath{{\mathop{\mathrm{e}}\nolimits}}}
+\providecommand{\micro}{\textormath{\textmu}{%
+  \ifPDFTeX
+    \ifdefined\muup\muup\else\mbox{\textmu}\fi
+  \else
+    \mathup{\mu}%
+  \fi
+}}
+\providecommand{\gradi}{\textormath{\textdegree}{^\circ}}
+\RequirePackage{fancyvrb}
+\fvset{fontsize=\small}
+\let\listing\VerbatimInput
+\DeclareRobustCommand*{\fakeSC}[1]{%
+{\dimen@=\f@size\p@\dimen@=0.75\dimen@
+\fontsize{\dimen@}{\f@baselineskip}\selectfont
+\expandafter{\uppercase{#1}}}}%
+\ifPDFTeX\let\simulatedSC\fakeSC\else\let\simulatedSC\textsc\fi
+\def\ft@figure{\iflanguage{italian}{\MakeLowercase{\figurename}}%
+            {\figurename}~}
+\def\ft@table{\iflanguage{italian}{\MakeLowercase{\tablename}}%
+            {\tablename}~}
+\newcommand*\EnableFigTabNames{%
+            \let\p@figure\ft@figure\let\p@table\ft@table}
+\newcommand*\DisableFigTabNames{%
+            \let\p@figure\empty\let\p@table\empty}
+\DisableFigTabNames
+%% 
+%% Copyright 2005-2018 Claudio Beccari
+%% 
+%% Distributable under the LaTeX Project Public License,
+%% version 1.3c or higher (your choice). The latest version of
+%% this license is at: http://www.latex-project.org/lppl.txt
+%% 
+%% This work is "author-maintained"
+%% 
+%% This work consists of this file toptesi.dtx, a README file
+%% the manifest.txt file, and the derived files:
+%%     toptesi.cls,
+%%     toptesi.sty,
+%%     topfront.sty,
+%%     topcommand.sty,
+%%     toptesi-scudo.sty,
+%%     toptesi.cfg,
+%%     toptesi-monografia.sty,
+%%     toptesi-sss.sty,
+%%     toptesi-magistrale.sty,
+%%     toptesi-dottorale.sty,
+%% and the English documentation toptesi.pdf.
+%% 
+%% Furthermore the bundle contains the documentation source
+%% file toptesi-it.tex and the derived file
+%% toptesi-it.pdf.
+%% 
+%% The toptesi-example.tex source file is just an example
+%% that shows how to use the various commands; by commenting
+%% or uncommenting certain source lines it is possible to
+%% typeset different kind of theses and their front pages.
+%% 
+%% The topfront-example.tex source file is an example of how
+%% to produce just the title page with TOPtesi and the external
+%% package frontespizio.
+%% 
+%% The toptesi-scudo-example.tex source file is an example
+%% that shows the particular features available with TOPtesi,
+%% when a doctoral thesis is produced for the Scuola di
+%% Dottorato (ScuDo) of Politecnico di Torino.
+%% 
+%% The toptesi.cfg file is a sample of a local configuration
+%% file that can be copied to another file and its copy freely
+%% edited and customised.
+%% 
+%% The other toptesi-*.sty files are extension modules for
+%% typesetting the specific thesis kinds described by the
+%% suffix that replaces the asterisk.
+%% 
+%% By running pdflatex on toptesi.dtx the user gets the class,
+%% sty and cfg files and the English documentation file in
+%% PDF format.
+%% 
+%% The source file of the Italian documentation file
+%% toptesi-it.pdf is another example of how to use TOPtesi.
+%% This file toptesi-it.tex may be typeset with pdfLaTeX,
+%% XeLaTeX, and LuaLateX; see the first comment lines of
+%% the file for how-to information. In spite of being mainly
+%% written in Italian, it contains several sections in English
+%% for the benefit of foreign students attending the Doctoral
+%% School of Turin.
+%%
+%% End of file `topcoman.sty'.

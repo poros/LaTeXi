@@ -4,6 +4,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % INCLUSIONE PACCHETTI
+\usepackage[classica]{topfront}
 \usepackage[utf8]{inputenc} %utf8
 \usepackage[italian]{babel}
 \usepackage[T1]{fontenc}
@@ -97,6 +98,25 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% LISTA DEI CAPITOLI DA INCLUDERE - PERSONALIZZARE
+\includeonly{%
+chap_qui,%
+chap_quo,%
+chap_qua,%
+app_a,%
+}
+
+% FILE DI BIBLIOGRAFIA
+\addbibresource{bibliography.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% INIZIO DOCUMENTO
+\begin{document}
+\english
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % FRONTESPIZIO - PERSONALIZZARE
 % ELIMINATE LE VOCI CHE NON VI SERVONO
 
@@ -151,25 +171,6 @@
 
 % DATA - MESE ANNO
 \sedutadilaurea{Settembre 1984}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% LISTA DEI CAPITOLI DA INCLUDERE - PERSONALIZZARE
-\includeonly{%
-chap_qui,%
-chap_quo,%
-chap_qua,%
-app_a,%
-}
-
-% FILE DI BIBLIOGRAFIA
-\addbibresource{bibliography.bib}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% INIZIO DOCUMENTO
-\begin{document}
 
 \frontespizio
 

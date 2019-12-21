@@ -1,0 +1,320 @@
+%%
+%% This is file `toptesi-scudo.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% toptesi.dtx  (with options: `topscu')
+%%   ______________________________________________________
+%%   The TOPtesi bundle
+%%   Copyright (C) 2015-2018 Claudio Beccari
+%%   All rights reserved
+%% 
+%%   License information appended
+%% 
+\NeedsTeXFormat{LaTeX2e}[2016/01/01]
+\ProvidesPackage{toptesi-scudo}[%
+2018/05/06 v.~6.2.04
+Extension for ScuDo theses]
+
+
+\ScuDotrue
+\ifPDFTeX
+   \RequirePackage{amsmath,amssymb,amsthm}
+\else
+   \RequirePackage{amsmath,amsthm}
+   \RequirePackage{unicode-math}
+\fi
+\AtBeginDocument{%
+\providecommand\diff{}%
+\renewcommand{\diff}{\mathop{}\!\mathrm{d}}
+\providecommand{\gei}{\ensuremath{{\mathop{\mathrm{j}}\nolimits}}}
+\providecommand{\eu}{\ensuremath{{\mathop{\mathrm{e}}\nolimits}}}
+\let\iu\gei}
+
+\ifcsundef{ifmybibstyle}{\newif\ifmybibstyle\mybibstylefalse}{}
+\DeclareOption{mybibliostyle}{\mybibstyletrue}
+\ProcessOptions*\relax
+
+\@ifpackageloaded{xparse}{}{%
+  \RequirePackage{xparse}}% Command and environment advanced definitions
+\RequirePackage{lscape}   % Supports landscape Layout
+\RequirePackage{setspace} % Define line spacing in paragraph. Don't use!
+\RequirePackage{calc}     % Calculation macros
+\RequirePackage{ifthen}   % Conditional statements
+\RequirePackage{caption}  % Configure captions
+\RequirePackage{subcaption}% Defines env. subfigure and its caption
+\RequirePackage{tabularx} % Tables with expandable columns
+\RequirePackage{booktabs} % professional rules in tables
+\RequirePackage{multirow} % Multirow cells are not professional
+\RequirePackage{siunitx}  % advanced management of units of measure
+\RequirePackage{float}    % Use only to define new floating objects!
+\usepackage[intoc]{nomencl}% Generate nomenclatures or glossaries
+\makenomenclature
+\renewcommand{\nomgroup}[1]{%
+\ifstrequal{#1}{A}{\item[\textbf{Roman Symbols}]}{%
+\ifstrequal{#1}{G}{\item[\textbf{Greek Symbols}]}{%
+\ifstrequal{#1}{Z}{\item[\textbf{Acronyms / Abbreviations}]}{%
+\ifstrequal{#1}{R}{\item[\textbf{Superscripts}]}{%
+\ifstrequal{#1}{S}{\item[\textbf{Subscripts}]}{%
+\ifstrequal{#1}{X}{\item[\textbf{Other Symbols}]}{}}}}}}}
+
+\renewcommand{\nompreamble}{\markboth{\nomname}{\nomname}}
+\newcommand{\printnomencl}[1][]{%
+\immediate\closeout\@nomenclaturefile
+\ifLuaTeX
+  \chardef\T@T@shellescape\directlua{tex.write(os.execute())}
+  \def\exec@makeindex{%
+     \directlua{os.execute("\luaescapestring
+     {makeindex -s nomencl.ist -t \jobname.nlg -o \jobname.nls \jobname.nlo}")}}
+\else
+  \def\exec@makeindex{\immediate\write18{%
+  makeindex -s nomencl.ist -t \jobname.nlg -o \jobname.nls \jobname.nlo}}
+\fi
+\exec@makeindex
+\ifblank{#1}{\printnomenclature}{\printnomenclature[#1]}%
+}
+\unless\ifmybibstyle
+  \usepackage[autostyle]{csquotes} % necessary for biblatex
+  \usepackage[backend=biber,
+              style=numeric-comp,
+              citestyle=numeric,
+              sorting=nty,
+              natbib]{biblatex} % LaTeX specific bibliography handler
+  \addbibresource{references.bib}% bibliographic data base(s}
+\fi
+\usepackage{imakeidx}% to generate automatic indices
+\ifPDFTeX \usepackage{indentfirst}\fi
+\raggedbottom
+
+\AfterEndPreamble{\english}% Set English as default language
+
+\TOPfrontfalse
+
+\providecommand*\@Ndissertation{Doctoral Dissertation}
+\providecommand*\@Ndoctoralprogram{Doctoral Program in\xspace}
+\providecommand*\@programname{}
+\providecommand\@Cyclenumber{}
+\providecommand*\@title{}
+\providecommand*\@subtitle{\vspace{\stretch{1}}}
+\providecommand*\@author{}
+\providecommand*\@Nsupervisor{Supervisor}\providecommand*\@Nsupervisors{Supervisors}
+\newcount\@supervisornumber
+\providecommand*\@supervisorlist{}
+\providecommand\@Nexaminationcommittee{Doctoral Examination Committee:}
+\providecommand*\@Examinerlist{}
+\providecommand*\@examlocation{Politecnico di Torino}
+\providecommand*\@examinationdate{}
+\providecommand*\@creativecommons{This thesis is licensed under a Creative Commons License, Attribution - Noncommercial- NoDerivative Works 4.0 International: see \url{www.creativecommons.org}.
+The text may be reproduced for non-commercial purposes, provided that credit is given to the original author.}
+\providecommand\@disclaimer{\noindent I hereby declare that
+the contents and organisation of this dissertation constitute
+my own original work and does not compromise in any way the
+rights of third parties, including those relating to the
+security of personal data.}
+
+\newcommand*\Ndissertation[1]{\gdef\@Ndissertation{#1}}
+\newcommand*\Ndoctoralprogram[1]{\gdef\@Ndoctoralprogram{#1\xspace}}
+\newcommand*\ProgramName[1]{\gdef\@programname{#1\xspace}}
+\newcommand*\CycleNumber[1]{\gdef\@Cyclenumber{\ifblank{#1}{}{(#1 cycle)}}}
+\renewcommand*\title[1]{\gdef\@title{#1}}
+\newcommand*\subtitle[1]{\gdef\@subtitle{\ifblank{#1}{}{\medskip\par
+   {\Large #1\par}}\vspace{\stretch{1}}}}
+\renewcommand*\author[1]{\gdef\@author{#1}}
+\newcommand*\NSupervisor[2]
+   {\gdef\@Nsupervisor{#1}\gdef\@Nsupervisors{#2}}
+\newcommand*\SupervisorList[1]{\gdef\@supervisorlist{#1}}
+\newcommand\SupervisorNumber[1]{%
+   \ifblank{#1}{\@supervisornumber=0}{\@supervisornumber=#1}}
+\newcommand\Nexaminationcommittee[1]{\gdef\@Nexaminationcommittee{#1}}
+\newcommand*\ExaminerList[1]{\gdef\@Examinerlist{#1}}
+\newcommand*\Nlocation[1]{\gdef\@examlocation{#1}}
+\newcommand*\ExaminationDate[1]{\gdef\@examinationdate{#1}}
+
+\newlength{\TPT@logospace}\TPT@logospace=3em\relax
+\newsavebox{\TPT@logobox} \setbox\TPT@logobox\hbox{}
+\newdimen\TPT@logoheight
+\newcommand*\setlogodistance[1]{\TPT@logospace=#1}
+\providecommand*{\@logosede}{}
+
+\ifcsundef{T@Tlogoheight}{%\
+    \newlength\T@Tlogoheight
+    \setlength\T@Tlogoheight{0.8\dimexpr(\paperwidth-\textwidth)/2}}{}
+
+\newcommand\PhDschoolLogo[2][\T@Tlogoheight]{\def\@logosede{#2}\TPT@logoheight=#1\relax
+\ifcsvoid{@logosede}{\sbox{\TPT@logobox}{}}{\begin{lrbox}{\TPT@logobox}%
+\expandafter\fillup@TCP@logobox\@logosede,!}}
+
+\def\fillup@TCP@logobox#1,#2!{%
+\ifblank{#1}{\end{lrbox}\ifdim\wd\TPT@logobox>\textwidth
+\sbox\TPT@logobox{\resizebox{\textwidth}{!}{\box\TPT@logobox}}\fi}%
+{\def\@logosede{#2}%
+\includegraphics[height=\TPT@logoheight]{#1}\hskip\TPT@logospace
+   \expandafter\fillup@TCP@logobox\@logosede,!}}
+
+\newcommand\printloghi{\unless\ifvoid\TPT@logobox\usebox{\TPT@logobox}\fi}
+\newcommand\Disclaimer[1]{\gdef\@disclaimer{#1}}
+\newcommand\CClicence[1]{\gdef\@creativecommons{#1}}
+\providecommand\@signature{%
+\begin{flushright}
+\parbox{0.5\textwidth}{\centering
+\dotfill\\
+\@author\\
+Turin, \@examinationdate
+}%
+\end{flushright}}
+\newcommand\Signature[1]{\gdef\@signature{#1}}
+\newenvironment{ThesisTitlePage}{% Apertura
+\InputIfFileExists{\jobname.cfg}{\relax}{\relax}%
+}{%Chiusura
+\begin{titlepage}\parindent=0pt
+{\centering
+\raisebox{-1ex}[0pt][0pt]{\makebox[\textwidth]{\printloghi}}\par
+\vspace{\baselineskip}
+\@Ndissertation\\
+\@Ndoctoralprogram \@programname\@Cyclenumber
+\bigskip
+
+{\Huge\bfseries \@title\par}
+\@subtitle
+{\Large\bfseries \@author\par}
+\smallskip
+\mbox{* * * * * *}
+\vspace{\stretch{1}}
+
+{\large\bfseries \ifcase\@supervisornumber
+\relax\or \@Nsupervisor\else\@Nsupervisors\fi\par}
+\@supervisorlist
+\par}
+
+\vspace{\stretch{1}}
+
+\ifcsvoid{@Examinerlist}{\relax}{%
+\noindent\begin{tabular}{@{}l}
+\bfseries \@Nexaminationcommittee\\
+\@Examinerlist
+\end{tabular}}
+
+\begin{center}
+\raisebox{-3\baselineskip}[0pt][0pt]{%
+\parbox{0.5\textwidth}{\centering
+\@examlocation\\
+\@examinationdate}}
+\end{center}
+\end{titlepage}
+\newpage\thispagestyle{empty}
+\vspace*{\stretch{1}}
+\@creativecommons
+\vspace{3\baselineskip}
+
+\ifempty{\@keywords}{\relax}{Keywords: \@keywords\par
+\vspace{2\baselineskip}}
+
+\@disclaimer
+\vspace{3\baselineskip}
+
+\@signature}
+
+\providecommand*\subject{}\providecommand*\@subject{}
+\renewcommand\subject[1]{\gdef\@subject{#1}}
+\providecommand*\keywords{}\providecommand*\@keywords{}
+\renewcommand\keywords[1]{\gdef\@keywords{#1}}
+\AtBeginDocument{% Set some metadata
+  \hypersetup{%
+    pdftitle   = {\@title},
+    pdfauthor  = {\@author},
+    pdfsubject = {\@subject},
+    pdfkeywords= {\@keywords}
+  }
+}
+\AtEndDocument{%
+\clearpage
+\ifbool{@twoside}%
+{\ifodd\value{page}\thispagestyle{empty}\newpage\fi}{\relax}%
+\vspace*{\stretch{1}}%
+\noindent
+\begin{tabularx}{\textwidth}{Xp{0.45\textwidth}X}
+&
+This Ph.D.\ thesis has been typeset by means of the \TeX-system
+facilities. The typesetting engine was
+\ifPDFTeX
+  \ifcsdef{pdfLaTeX}{\pdfLaTeX}{pdf\/\LaTeX}%
+\else
+   \ifLuaTeX
+      \ifcsdef{LuaLaTeX}{\LuaLaTeX}{Lua\/\LaTeX}%
+   \else
+      \ifcsdef{Xe}{\Xe\LaTeX}{Xe\/\LaTeX}
+   \fi
+\fi.
+The document class was \texttt{toptesi}, by Claudio Beccari,
+with option \texttt{tipotesi\discretionary{}{=}{=}scudo}.
+This class is available in every up-to-date and complete
+\TeX-system installation.
+&
+\end{tabularx}
+\vspace*{\stretch{2}}%
+}
+
+%% 
+%% Copyright 2005-2018 Claudio Beccari
+%% 
+%% Distributable under the LaTeX Project Public License,
+%% version 1.3c or higher (your choice). The latest version of
+%% this license is at: http://www.latex-project.org/lppl.txt
+%% 
+%% This work is "author-maintained"
+%% 
+%% This work consists of this file toptesi.dtx, a README file
+%% the manifest.txt file, and the derived files:
+%%     toptesi.cls,
+%%     toptesi.sty,
+%%     topfront.sty,
+%%     topcommand.sty,
+%%     toptesi-scudo.sty,
+%%     toptesi.cfg,
+%%     toptesi-monografia.sty,
+%%     toptesi-sss.sty,
+%%     toptesi-magistrale.sty,
+%%     toptesi-dottorale.sty,
+%% and the English documentation toptesi.pdf.
+%% 
+%% Furthermore the bundle contains the documentation source
+%% file toptesi-it.tex and the derived file
+%% toptesi-it.pdf.
+%% 
+%% The toptesi-example.tex source file is just an example
+%% that shows how to use the various commands; by commenting
+%% or uncommenting certain source lines it is possible to
+%% typeset different kind of theses and their front pages.
+%% 
+%% The topfront-example.tex source file is an example of how
+%% to produce just the title page with TOPtesi and the external
+%% package frontespizio.
+%% 
+%% The toptesi-scudo-example.tex source file is an example
+%% that shows the particular features available with TOPtesi,
+%% when a doctoral thesis is produced for the Scuola di
+%% Dottorato (ScuDo) of Politecnico di Torino.
+%% 
+%% The toptesi.cfg file is a sample of a local configuration
+%% file that can be copied to another file and its copy freely
+%% edited and customised.
+%% 
+%% The other toptesi-*.sty files are extension modules for
+%% typesetting the specific thesis kinds described by the
+%% suffix that replaces the asterisk.
+%% 
+%% By running pdflatex on toptesi.dtx the user gets the class,
+%% sty and cfg files and the English documentation file in
+%% PDF format.
+%% 
+%% The source file of the Italian documentation file
+%% toptesi-it.pdf is another example of how to use TOPtesi.
+%% This file toptesi-it.tex may be typeset with pdfLaTeX,
+%% XeLaTeX, and LuaLateX; see the first comment lines of
+%% the file for how-to information. In spite of being mainly
+%% written in Italian, it contains several sections in English
+%% for the benefit of foreign students attending the Doctoral
+%% School of Turin.
+%%
+%% End of file `toptesi-scudo.sty'.

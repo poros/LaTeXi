@@ -1,0 +1,206 @@
+%%
+%% This is file `toptesi-sss.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% toptesi.dtx  (with options: `topsss')
+%%   ______________________________________________________
+%%   The TOPtesi bundle
+%%   Copyright (C) 2015-2018 Claudio Beccari
+%%   All rights reserved
+%% 
+%%   License information appended
+%% 
+\NeedsTeXFormat{LaTeX2e}[2016/01/01]
+\ProvidesPackage{toptesi-sss}[%
+2018/05/06 v.~6.2.04
+High school title page]
+
+
+%%
+%%%% Math fonts and AMS extensions (|fontspec| is already loaded)
+\secondariatrue
+\ifPDFTeX
+   \@ifpackageloaded{newtxmath}{}%
+     {\@ifpackageloaded{newpxmath}{}%
+       {%
+         \RequirePackage{amsmath,amssymb,amsthm}%
+       }%
+     }%
+\else
+   \RequirePackage{amsmath,amsthm}
+   \RequirePackage{unicode-math}
+\fi
+\RequirePackage{xcolor}   % Intelligent colors
+\RequirePackage{xspace}   % Intelligent space
+\RequirePackage{xparse}   % Command and environment advanced definitions
+\RequirePackage{calc}     % Calculation macros
+\RequirePackage{ifthen}   % Conditional statements
+\RequirePackage{booktabs} % professional rules in tables
+\RequirePackage{multirow} % Multirow table cells are not professional
+\RequirePackage[autostyle]{csquotes} % necessary for biblatex
+\ifPDFTeX \RequirePackage{indentfirst}\fi
+\raggedbottom
+\providecommand*\@SSSLogo{}
+\providecommand*\@tiposcuola{}
+\providecommand*\@indirizzomiur{}
+\providecommand*\@opzionemiur{}
+\providecommand*\@nomescuola{}
+\providecommand*\@sedescuola{}
+\providecommand*\@annoscolastico{}
+
+\providecommand*\@Ntesina{Tesina di maturit\`a}
+\providecommand*\@title{}
+\providecommand*\@subtitle{}
+
+\ifcsundef{ifemminile}{\newif\iffemminile\femminilefalse}{}
+\providecommand*\@Ncandidato{\iffemminile Studentessa\else
+                             Studente\fi}
+\providecommand*\@author{}
+\providecommand*\@Npresidente{Presidente di commissione}
+\providecommand*\@presidente{}
+\providecommand*\@numerocommissione{}
+
+\newcommand*\SSSLogo[1]{\gdef\@SSSLogo{#1}}
+\newcommand*\NomeTesina[1]{\gdef\@Ntesina{#1}}
+\newcommand*\IndirizzoMiur[1]{\gdef\@indirizzomiur{#1}}
+\newcommand*\OpzioneMiur[1]{\gdef\@opzionemiur{#1}}
+\newcommand*\TipoScuola[1]{\gdef\@tiposcuola{#1}}
+\newcommand*\SedeScuola[1]{\gdef\@sedescuola{#1}}
+\newcommand*\NomeScuola[1]{\gdef\@nomescuola{#1}}
+\newcommand*\AnnoScolastico[1]{\gdef\@annoscolastico{#1}}
+\newcommand*\NomeCandidato[1]{\gdef\@Ncandidato{#1}}
+
+\newcommand*\titolo[1]{\gdef\@title{#1}}
+\newcommand*\sottotitolo[1]{\gdef\@subtitle{\ifblank{#1}{}%
+   {\medskip\par{\Large #1\par}}%
+   \vspace{\stretch{1}}}}
+
+\NewDocumentCommand\studente{m o}{\gdef\@@author{#1}%
+\IfNoValueTF{#2}{\gdef\@author{#1}}%
+               {\gdef\@author{#1\IDlabel#2}}\femminilefalse}
+\NewDocumentCommand\studentessa{m o}{\gdef\@@author{#1}%
+\IfNoValueTF{#2}{\gdef\@author{#1}}%
+               {\gdef\@author{#1\IDlabel#2}}\femminiletrue}
+\newcommand*\IDlabel{\\\normalfont Classe\ }
+\newcommand*\Presidente[1]{\gdef\@presidente{#1}}
+\newcommand*\NumeroCommissione[1]{\gdef\@numerocommissione{#1}}
+\newcommand*\ifBlank{\expandafter\ifblank\expandafter}
+\newenvironment{FrontespizioTesina}{%
+\InputIfFileExists{\jobname.cfg}{\relax}{\relax}
+}{%
+\begin{titlepage}\parindent=0pt
+\centering
+\raisebox{0.025\textheight}[0pt][0pt]{\parbox[b]{\textwidth}{%
+\centering
+\ifBlank{\@tiposcuola}{Manca il tipo di scuola}{\@tiposcuola}%
+\ifBlank{\@indirizzomiur}{\relax}{\space--\space\@indirizzomiur}%
+\ifBlank{\@opzionemiur}{\relax}{\space--\space\@opzionemiur}\par
+\vspace{-1ex}
+\makebox[0.5\textwidth]{\rule{0.50\textwidth}{0.4\p@}}\par
+\vspace{-1.5ex}
+\makebox[0.25\textwidth]{\rule{0.25\textwidth}{0.8\p@}}\par
+\medskip
+
+\textsc{\@nomescuola}}}\par
+\null\hfill\ifBlank{\@sedescuola}{\relax}{%
+\raisebox{0.5\baselineskip}[0pt][0pt]{%
+\parbox{0.4\textwidth}{\raggedleft\@sedescuola}}}\par
+\vspace{\stretch{1}}
+{\large \@Ntesina\par}
+\vspace{\stretch{0.5}}
+
+{\Large\textbf{\@title}\par}
+{\vspace{0.5\baselineskip}
+
+\normalsize\@subtitle\par}
+\ifBlank{\@SSSLogo}%
+  {\vspace{\stretch{1}}}%
+  {\includegraphics[height=30mm]{\@SSSLogo}}\par\vspace{\stretch{1}}
+\begin{minipage}[t]{0.45\textwidth}\flushleft
+\ifBlank{\@presidente}{}{\@Npresidente\\
+{\bfseries\scshape\@presidente}\par
+\vspace{\baselineskip}}
+
+\ifBlank{\@numerocommissione}{}{Commissione numero\\
+\textbf{\@numerocommissione}}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}\flushright
+\@Ncandidato\\
+{\bfseries\scshape\@author}
+\end{minipage}
+
+\vspace{\stretch{1}}
+
+\raisebox{-0.05\textheight}[0pt][0pt]{%
+\parbox[t]{\textwidth}{\centering
+\makebox[0.25\textwidth]{\hrulefill}\\[\medskipamount]
+Anno scolastico \@annoscolastico}}
+\end{titlepage}
+\clearpage}%%
+%%
+%% 
+%% Copyright 2005-2018 Claudio Beccari
+%% 
+%% Distributable under the LaTeX Project Public License,
+%% version 1.3c or higher (your choice). The latest version of
+%% this license is at: http://www.latex-project.org/lppl.txt
+%% 
+%% This work is "author-maintained"
+%% 
+%% This work consists of this file toptesi.dtx, a README file
+%% the manifest.txt file, and the derived files:
+%%     toptesi.cls,
+%%     toptesi.sty,
+%%     topfront.sty,
+%%     topcommand.sty,
+%%     toptesi-scudo.sty,
+%%     toptesi.cfg,
+%%     toptesi-monografia.sty,
+%%     toptesi-sss.sty,
+%%     toptesi-magistrale.sty,
+%%     toptesi-dottorale.sty,
+%% and the English documentation toptesi.pdf.
+%% 
+%% Furthermore the bundle contains the documentation source
+%% file toptesi-it.tex and the derived file
+%% toptesi-it.pdf.
+%% 
+%% The toptesi-example.tex source file is just an example
+%% that shows how to use the various commands; by commenting
+%% or uncommenting certain source lines it is possible to
+%% typeset different kind of theses and their front pages.
+%% 
+%% The topfront-example.tex source file is an example of how
+%% to produce just the title page with TOPtesi and the external
+%% package frontespizio.
+%% 
+%% The toptesi-scudo-example.tex source file is an example
+%% that shows the particular features available with TOPtesi,
+%% when a doctoral thesis is produced for the Scuola di
+%% Dottorato (ScuDo) of Politecnico di Torino.
+%% 
+%% The toptesi.cfg file is a sample of a local configuration
+%% file that can be copied to another file and its copy freely
+%% edited and customised.
+%% 
+%% The other toptesi-*.sty files are extension modules for
+%% typesetting the specific thesis kinds described by the
+%% suffix that replaces the asterisk.
+%% 
+%% By running pdflatex on toptesi.dtx the user gets the class,
+%% sty and cfg files and the English documentation file in
+%% PDF format.
+%% 
+%% The source file of the Italian documentation file
+%% toptesi-it.pdf is another example of how to use TOPtesi.
+%% This file toptesi-it.tex may be typeset with pdfLaTeX,
+%% XeLaTeX, and LuaLateX; see the first comment lines of
+%% the file for how-to information. In spite of being mainly
+%% written in Italian, it contains several sections in English
+%% for the benefit of foreign students attending the Doctoral
+%% School of Turin.
+%%
+%% End of file `toptesi-sss.sty'.
