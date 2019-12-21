@@ -61,7 +61,7 @@ Come molti documenti in LaTeX è necessario __compilare più volte__ prima di vi
 ###Prima compilazione
 
 * PDFLaTeX
-* BibTeX
+* Biber
 * PDFLaTeX
 * PDFLaTex
 
@@ -74,7 +74,7 @@ Ogni volta che le vostre modifiche interessano __indici__ o __riferimenti__ a __
 
 Ogni volta che le vostre modifiche interessano la __bibliografia__ o __riferimenti__ alla bibliografia:
 
-* BibTeX
+* Biber
 * PDFLaTeX
 * PDFLaTex
 
