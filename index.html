@@ -54,34 +54,36 @@
 
 <hr><h1>
 <a name="guida" class="anchor" href="#guida"><span class="octicon octicon-link"></span></a>Guida</h1>
-
 <ol>
-<li><a href="https://github.com/poros/LaTeXi#lingua">Lingua</a></li>
-<li><a href="https://github.com/poros/LaTeXi#dipendenze">Dipendenze</a></li>
+<li><a href="http://poros.github.io/LaTeXi#lingua">Lingua</a></li>
+<li><a href="http://poros.github.io/LaTeXi#dipendenze">Dipendenze</a></li>
 <li>
-<a href="https://github.com/poros/LaTeXi#compilazione">Compilazione</a>
-
+<a href="http://poros.github.io/LaTeXi#compilazione">Compilazione</a>
 <ol>
-<li><a href="https://github.com/poros/LaTeXi#prima-compilazione">Prima compilazione</a></li>
-<li><a href="https://github.com/poros/LaTeXi#compilazioni-successive">Compilazioni successive</a></li>
+<li><a href="http://poros.github.io/LaTeXi#prima-compilazione">Prima compilazione</a></li>
+<li><a href="http://poros.github.io/LaTeXi#compilazioni-successive">Compilazioni successive</a></li>
 </ol>
 </li>
-<li><a href="https://github.com/poros/LaTeXi#struttura-della-cartella">Struttura della cartella</a></li>
 <li>
-<a href="https://github.com/poros/LaTeXi#componenti-da-personalizzare">Componenti da personalizzare</a>
-
+<a href="http://poros.github.io/LaTeXi#struttura-della-cartella">Struttura della cartella</a>
 <ol>
-<li><a href="https://github.com/poros/LaTeXi#informazioni-pdf">Informazioni PDF</a></li>
-<li><a href="https://github.com/poros/LaTeXi#frontespizio">Frontespizio</a></li>
-<li><a href="https://github.com/poros/LaTeXi#lista-capitoli">Lista capitoli</a></li>
-<li><a href="https://github.com/poros/LaTeXi#dedica-citazione">Dedica e Citazione</a></li>
-<li><a href="https://github.com/poros/LaTeXi#ringraziamenti">Ringraziamenti</a></li>
-<li><a href="https://github.com/poros/LaTeXi#sommario-o-abstract">Sommario o Abstract</a></li>
-<li><a href="https://github.com/poros/LaTeXi#indici-e-varie">Indici e varie</a></li>
-<li><a href="https://github.com/poros/LaTeXi#lista-capitoli-s%C3%AC-di-nuovo">Lista capitoli (sì, di nuovo)</a></li>
+<li><a href="http://poros.github.io/LaTeXi#supporto-per-overleaf">Supporto per Overleaf</a></li>
 </ol>
 </li>
-<li><a href="https://github.com/poros/LaTeXi#faq">FAQ</a></li>
+<li>
+<a href="http://poros.github.io/LaTeXi#componenti-da-personalizzare">Componenti da personalizzare</a>
+<ol>
+<li><a href="http://poros.github.io/LaTeXi#informazioni-pdf">Informazioni PDF</a></li>
+<li><a href="http://poros.github.io/LaTeXi#frontespizio">Frontespizio</a></li>
+<li><a href="http://poros.github.io/LaTeXi#lista-capitoli">Lista capitoli</a></li>
+<li><a href="http://poros.github.io/LaTeXi#dedica-citazione">Dedica e Citazione</a></li>
+<li><a href="http://poros.github.io/LaTeXi#ringraziamenti">Ringraziamenti</a></li>
+<li><a href="http://poros.github.io/LaTeXi#sommario-o-abstract">Sommario o Abstract</a></li>
+<li><a href="http://poros.github.io/LaTeXi#indici-e-varie">Indici e varie</a></li>
+<li><a href="http://poros.github.io/LaTeXi#lista-capitoli-s%C3%AC-di-nuovo">Lista capitoli (sì, di nuovo)</a></li>
+</ol>
+</li>
+<li><a href="http://poros.github.io/LaTeXi#faq">FAQ</a></li>
 </ol><h2>
 <a name="lingua" class="anchor" href="#lingua"><span class="octicon octicon-link"></span></a>Lingua</h2>
 
@@ -97,6 +99,8 @@
 <p>La totalità dei pacchetti dovrebbe essere installabile facilmente tramite qualsiasi gestore di pacchetti LaTeX. L'approccio compila-errore-pacchetto-assente-installa è comunque il modo migliore di procedere se volete installare i pacchetti manualmente.</p>
 
 <p>La dipendenza più problematica da installare potrebbe risultare TopTesi. DOVETE installare TopTesi, LaTeXi è costruito intorno a questo pacchetto. Se il vostro gestore pacchetti è nei guai, seguite le istruzioni riportate nella documentazione ufficiale del pacchetto <a href="http://mirrors.ctan.org/macros/latex/contrib/toptesi/toptesi.pdf">TopTesi</a>.</p>
+
+Se state usando Overleaf, invece, l'installazione di TopTesi è sostituita dalla cartella <strong>tex</strong> e dal file <strong>latexmkrc</strong>.
 
 <h2>
 <a name="compilazione" class="anchor" href="#compilazione"><span class="octicon octicon-link"></span></a>Compilazione</h2>
@@ -141,6 +145,11 @@
 <p>Tutti i file principali risiedono nella cartella LaTeXi. Siete liberi di <strong>cambiare</strong> il nome della cartella a vostro piacimento. La sotto-cartella <strong>images</strong> è stata pensata per ospitare le <strong>immagini</strong>, mentre la cartella <strong>code</strong> è pensata per mantenere il vostro <strong>codice</strong> (sì, era ovvio, ma l'ho scritto lo stesso in grassetto, non si sa mai). Ricordatevi che il nome della <strong>sotto-cartella</strong> figurerà nel <strong>percorso</strong> da specificare ogni volta che vorrete includere immagini o codice, come mostrato negli esempi (images/cat_photo.png). </p>
 
 <p>Siete liberi di aggiungere, eliminare o modificare le sotto-cartelle, ma, vi prego, <strong>ricordatevi</strong> di cambiare anche i percorsi all'interno della tesi. Vi prego (sappiamo tutti come andrà a finire...).</p>
+
+<h3>
+<a name="supporto-per-overleaf" class="anchor" href="#supporto-per-overleaf"><span class="octicon octicon-link"></span></a>Supporto per Overleaf</h3>
+
+Se state usando Overleaf, invece, l'installazione di TopTesi è sostituita dalla cartella <strong>tex</strong> e dal file <strong>latexmkrc</strong>.
 
 <h2>
 <a name="componenti-da-personalizzare" class="anchor" href="#componenti-da-personalizzare"><span class="octicon octicon-link"></span></a>Componenti da personalizzare</h2>
