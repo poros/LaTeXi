@@ -11,8 +11,8 @@ LaTeXi è espressamente pensato per atenei italiani, poiché si basa sulle funzi
 
 Se state usando Overleaf, potete partire dai due template pubblicati nella Overleaf Gallery:
 
-* [LateXi - English Template](https://www.overleaf.com/latex/templates/latexi-english-template/brsprfygydpv)
-* [Latexi - Template Italiano](https://www.overleaf.com/latex/templates/latexi-template-italiano/pshzfkvjpfgr)
+* [LaTeXi - English Template](https://www.overleaf.com/latex/templates/latexi-english-template/brsprfygydpv)
+* [LaTeXi - Template Italiano](https://www.overleaf.com/latex/templates/latexi-template-italiano/pshzfkvjpfgr)
 
 LaTeXi nasce dal template che Antonio Uccio Verardi (aka @poros) ha incominciato a passare ai propri amici come bootstrap (o copia-incolla, che dir si voglia) per le loro tesi di laurea. Da buon informatico, @poros l'ha poi commentato, ripulito e messo su GitHub, per il software libero, il progresso dell'umanità, la pace nel mondo e tutta quella roba là.
 
@@ -97,8 +97,8 @@ Siete liberi di aggiungere, eliminare o modificare le sotto-cartelle, ma, vi pre
 
 Se state usando Overleaf, potete partire dai due template pubblicati nella Overleaf Gallery:
 
-* [LateXi - English Template](https://www.overleaf.com/latex/templates/latexi-english-template/brsprfygydpv)
-* [Latexi - Template Italiano](https://www.overleaf.com/latex/templates/latexi-template-italiano/pshzfkvjpfgr)
+* [LaTeXi - English Template](https://www.overleaf.com/latex/templates/latexi-english-template/brsprfygydpv)
+* [LaTeXi - Template Italiano](https://www.overleaf.com/latex/templates/latexi-template-italiano/pshzfkvjpfgr)
 
 Se invece preferite direttamente fare l'upload dei file dal vostro computer, l'installazione di TopTesi è sostituita dalla cartella __tex__ e dal file __latexmkrc__.
 
