@@ -191,10 +191,6 @@ Questa seconda lista, che è nel corpo del documento (mentre la prima era nel pr
 
     LaTeXi è stata pensata per avere una discreta resa di stampa in qualsiasi condizione, anche in bianco e nero. Per questo l'unico colore utilizzato oltre al nero è il blu (ben poco blu, solo per alcuni tipi di collegamenti). Comunque, non ti negherò che anche a me piace il codice con i colori dell'arcobaleno e gli unicorni. Anzi, _ogni colorazione di sintassi per listing_ è ben accetta e raccomandata. Se ne siete in possesso, fate una pull request o scrivete un commento sulla pagina di [LaTeXi](http://poros.github.io/LaTeXi/) (soprattutto se per Matlab, linguaggio usato da molta gente senza praticamente nessuna base di programmazione, la quale ne beneficerebbe senz'altro). Sarò felicissimo di aggiungerle come commenti! :)
 
-* __Ma ci sono dei warning! Buuuh...__
-
-    Sì, è pieno di warning. Aiutatemi a correggerli, invece di lamentarvi!
-
 * __Mi scoccia poter compilare solo dal documento principale! Perché non hai usato il pacchetto _subfile_?__
 
     Sì, scoccia anche a me. Ma _subfile_ introduce troppa complessità d'uso per gli utenti più inesperti, che si troverebbero ad avere anche un file template per ogni capitolo (e qualche altro problema in più). Se ne può parlare, in un commento o in un issue, ma non credo che il gioco valga la candela, ora come ora.
