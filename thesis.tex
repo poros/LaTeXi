@@ -82,9 +82,10 @@
  % change the meaning of \chapter in a group
  \begingroup\def\chapter##1{\@schapter}
  \phantomsection % for the hyperlink
- \lstlistoflistings 
+ \addcontentsline{toc}{chapter}{Listings}
+ \lstlistoflistings
  \endgroup
-} 
+}
 \makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
