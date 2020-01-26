@@ -81,10 +81,15 @@
  % change the meaning of \chapter in a group
  \begingroup\def\chapter##1{\@schapter}
  \phantomsection % for the hyperlink
- \lstlistoflistings 
+ \lstlistoflistings
  \endgroup
-} 
+}
 \makeatother
+
+\addto\captionsitalian{%
+  \renewcommand{\lstlistlistingname}{Elenco dei listati}%
+  \renewcommand{\lstlistingname}{Listato}%
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
