@@ -63,7 +63,7 @@ __La compilazione del template genera dei warning. Non vi preoccupate, sono del 
 
 Come molti documenti in LaTeX è necessario __compilare più volte__ prima di visualizzare correttamente il documento.
 
-###Prima compilazione
+### Prima compilazione
 
 * PDFLaTeX
 * Biber
@@ -197,4 +197,4 @@ Questa seconda lista, che è nel corpo del documento (mentre la prima era nel pr
 
 * __Mi piacerebbe partecipare al progetto! Come faccio?__
 
-    Siamo su GitHub, amico! Se hai del codice da aggiungere fai pure una pull request o, se hai trovato un bug o vuoi richiedere una feature, apri un issue. Se non sai di cosa sto parlando, vai sulla pagina di [LaTeXi](http://poros.github.io/LaTeXi/) e scrivi un commento! Ti risponderò appena mi sveglio (sì, di solito dormo).
+    Siamo su GitHub, amico! Se hai del codice da aggiungere fai pure una pull request o, se hai trovato un bug o vuoi richiedere una feature, apri un issue. Se non sai di cosa sto parlando, vai sulla pagina di [LaTeXi](http://poros.github.io/LaTeXi/) e scrivi un commento!
